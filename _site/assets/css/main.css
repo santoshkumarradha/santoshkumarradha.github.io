@@ -357,8 +357,8 @@ body { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: 
   .site-nav .page-link:not(:last-child) { margin-right: 0; } }
 
 .header-bar { border-bottom: 1px solid #ccc; font-size: 20px; display: block; opacity: 0.75; width: 100%; text-align: center; padding-top: 25px; padding-bottom: 4rem; line-height: 3em; z-index: 25; }
-.header-bar h1 { color: #FF3636; font-size: 75px; }
-.header-bar h2 { font-size: 25px; }
+.header-bar h1 { color: #FF3636; font-size: 55px; }
+.header-bar h2 { font-size: 20px; }
 
 .site { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; min-height: 100vh; }
 
@@ -397,7 +397,7 @@ p { margin-bottom: 1.5em; overflow: visible; /* this is what keep the <p> from w
 .post-list { margin: 0; padding: 0; list-style: none; }
 .post-list > li { border-bottom: 1px solid #ccc; padding-bottom: 2rem; padding-top: 2rem; }
 
-.post-title { font-size: 42px; letter-spacing: -1px; line-height: 1; margin-bottom: 10px; margin-top: 0; }
+.post-title { font-size: 26px; letter-spacing: -1px; line-height: 1; margin-bottom: 10px; margin-top: 0; }
 
 .post-content h2 { font-size: 42px; }
 .post-content h3 { font-size: 30px; }

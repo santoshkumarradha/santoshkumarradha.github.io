@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Introducing the blog !
+title:  Introducing the blog march & april, looking forward to summer!
 date:   2015-03-15 16:40:16
 description: march & april, looking forward to summer
 ---
