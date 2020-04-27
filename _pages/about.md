@@ -25,6 +25,10 @@ Hi, I'm Santosh. I graduated from [NIT-Trichy](https://en.wikipedia.org/wiki/Nat
 
 Apart from these, I'm interested in a lot of domains, particularly in the intersection of mathematics, Physics, Computer Science and music. Among these, of particular interest is stochastic differential equations (SDE) and its applied use in music, sports and quant finance. I also love powerlifting, playing [mridangam](https://en.wikipedia.org/wiki/Mridangam), [taking photographs](https://www.flickr.com/photos/santyphotography/), [Graphic designing](https://www.behance.net/instrumentsantosh) and reading.
 
+I also developed and "maintain" these open source packages which I developed to ease my PhD work flow
+1)[pySKTB](https://github.com/santoshkumarradha/pysktb) - Scientific Python package for solving Slater Koster tight-binding Hamiltonian
+2) [pyQuestaal](https://github.com/santoshkumarradha/pyquestaal) - Python class to interface with [QUESTAAL](http://questaal.org) Quantum codes, which is a suite of electronic structure programs. 
+
 Things you will find me doing
 - Stuck to black board :crayon:
 - Face down on Mac coding :computer:
