@@ -20,7 +20,7 @@ My PhD is mainly focused on working with a new phase of matter called Topologica
 <!-- Dirac merging -->
 <div id="wrap">
     <img class="left" src="{{ site.baseurl }}/assets/img/dirc-merging.gif" width="220px">
-    <p><strong>Non trivial quantum vacuum in Dirac annihilation: </strong> Perovskites rich in had the in a special class of inorganic which a promising for solar cells. Are rich in different phases, we had studied the different distortion in a special class of inorganic halide perovskites which are a very promising candidate for perovskite solar cells.</p>
+    <p><strong>Non trivial quantum vacuum in Dirac annihilation: </strong> Surprisingly the vacuum ground state a quantum system after annihilating the dirac fermions becomes non trivial than a regular trivial gapped system. This non triviality is shown to stem from the *branch cuts* in the complex riemann sheets of ground state wave functions leading to something called "Obstructed Atomic Limit"</p>
 </div>
 <!-- Sb project -->
 <div id="wrap">
