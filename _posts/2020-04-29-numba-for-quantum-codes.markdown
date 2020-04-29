@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Numba for Quantum optimization
-date:   2020-04-15 16:40:16
+date:   2020-04-29 16:40:16
 description: Speeding the way
 tags: numba python tight-binding optimization Slaster-koster pysktb
 mathjax: true
