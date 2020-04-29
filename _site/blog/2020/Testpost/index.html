@@ -5,7 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
 
+
+
+
+
+  
   <title>Santosh Kumar Radha | Ising the stock market</title>
   <meta name="description" content="Personal webpage
 ">
@@ -55,21 +62,42 @@
           
         
           
+            
+          
+        
+          
         
           
         
           
+            
+          
+        
+          
+            
             <a class="page-link" href="http://localhost:4000/research/">Research</a>
+            
+            
           
         
           
+            
             <a class="page-link" href="http://localhost:4000/publications/">Publications</a>
+            
+            
+          
+        
+          
+            
           
         
           
         
           
         
+
+
+
         <!-- github -->
         <a class="page-link" href="https://github.com/santoshkumarradha">Github</a>
         <!-- flicker -->
@@ -90,12 +118,34 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="post">
+        
+<!-- https://docs.mathjax.org/en/latest/configuration.html#local-config-files -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js">
+</script>
+
+<div class="post">
 
   <header class="post-header">
     <h8 class="post-title">Ising the stock market</h8>
-    <p class="post-meta">April 15, 2020</p>
+        <p class="post-meta">April 15, 2020</p>
+        <p class="post-meta">
+      <span>tags: 
+    
+      
+      <a href="/tag/numba"><code class="highligher-rouge"><nobr>numba</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/finance"><code class="highligher-rouge"><nobr>finance</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/python"><code class="highligher-rouge"><nobr>python</nobr></code>&nbsp;</a>
+    
+  </span></p>
+
   </header>
+  
+
 
   <article class="post-content">
     <p>So here is the deal, I have been trying to convince my professor that we should start implementing our new codes (which solves not so super heavy equations with 4-point feynman diagrams) in python than FORTRAN. This is done mostly because, I am more fluent in python and also at some point I want to port it to Julia, the new kid in the block. I have known about <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwipk5PexInpAhXWXM0KHUR4BuAQFjAAegQIFxAC&amp;url=http%3A%2F%2Fnumba.pydata.org%2F&amp;usg=AOvVaw38D5R_3JXRfxT6KPHDCZGs">numba</a> for sometime and had wanted to try it, so what better way than to introduce the idea of emergence using numba to prove a point !</p>
@@ -104,9 +154,9 @@
 
 <p>Say the market is made up <script type="math/tex">n \times n=n^{2}</script>  of people with everyone living in a hypothetical flat land who trade a particular sector (like financial sector or tech stocks). In this world, everyone is in a state of “buy” or “sell” which we will take it to be <script type="math/tex">+1</script> or <script type="math/tex">-1</script>. Thus the measure that market tries to minimize is given by</p>
 
-<script type="math/tex; mode=display">\hat{H}=J\sum_{i,j}\hat{\sigma_i} \hat{\sigma_j}</script>
+<script type="math/tex; mode=display">\begin{equation}\hat{H}=J\sum_{i,j}\hat{\sigma_i} \hat{\sigma_j}\end{equation}</script>
 
-<p>First we will describe what the variables mean and then see why market would try to minimize this. Here <script type="math/tex">\hat{\sigma_i}</script> is the state operator, meaning given a state of market it would pick the sentiment of <script type="math/tex">i^{th}</script> person. For example, lets say the market is made up of 4 people (extremely small world, but meh!), then the state of the market, say is <script type="math/tex">s=(1,1,-1,1)</script> meaning the first and second person wants to buy (<script type="math/tex">1,1</script>) are the first two elements, while the third and fourth one wants to sell denoted by (<script type="math/tex">-1,-1</script>) which are the last two elements. Then <script type="math/tex">\hat{\sigma_2}s=1</script> just picks the second person’s sentiment. <script type="math/tex">J</script> here defines the influence of our nearby trader circle (for example listening to a podcast about stock market might influence your sentiment and hence everyone who listens to the podcast would be influenced the same way). Now we need a final ingredient which we will call randomness <script type="math/tex">R</script> which influences randomness in our market. This is essentially controls how our group’s sector is not self contained, meaning our traders often get influenced by what happens in other sectors too. For example, what happens to utility sector is strongly influenced by real-estate markets. But since we are just modeling one sector, we will include this effect as a randomness <script type="math/tex">R</script>. Finally the sum in <script type="math/tex">H</script> is with nearest neighbor <em>i.e.</em> person close to each other. How do we know who is close to who? well thats where our approximation of flat land comes into play, we will put our investors in a 2 dimensional square grid and hence each person would be surrounded by 4 person next to each other as shown where each black dot is connected to 4 nearest white dots</p>
+<p>First we will describe what the variables mean and then see why market would try to minimize this. Here <script type="math/tex">\hat{\sigma_i}</script> is the state operator, meaning given a state of market it would pick the sentiment of <script type="math/tex">i^{th}</script> person. For example, lets say the market is made up of 4 people (extremely small world, but meh!), then the state of the market, say is <script type="math/tex">|s>=(1,1,-1,1)</script> meaning the first and second person wants to buy (<script type="math/tex">1,1</script>) are the first two elements, while the third and fourth one wants to sell denoted by (<script type="math/tex">-1,-1</script>) which are the last two elements. Then <script type="math/tex">\hat{\sigma_2}|s>=1</script> just picks the second person’s sentiment. <script type="math/tex">J</script> here defines the influence of our nearby trader circle (for example listening to a podcast about stock market might influence your sentiment and hence everyone who listens to the podcast would be influenced the same way). Now we need a final ingredient which we will call randomness <script type="math/tex">R</script> which influences randomness in our market. This is essentially controls how our group’s sector is not self contained, meaning our traders often get influenced by what happens in other sectors too. For example, what happens to utility sector is strongly influenced by real-estate markets. But since we are just modeling one sector, we will include this effect as a randomness <script type="math/tex">R</script>. Finally the sum in <script type="math/tex">H</script> is with nearest neighbor <em>i.e.</em> person close to each other. How do we know who is close to who? well thats where our approximation of flat land comes into play, we will put our investors in a 2 dimensional square grid and hence each person would be surrounded by 4 person next to each other as shown where each black dot is connected to 4 nearest white dots</p>
 <p align="center">
   <img width="200" src="/assets/img/square.png" />
 </p>
@@ -250,6 +300,21 @@
   
 
 </div>
+<h2>Topics to explore</h2>
+
+
+
+  
+  
+  <a href="/tag/python"><code class="highligher-rouge"><nobr>python</nobr></code></a>
+
+  
+  
+  <a href="/tag/numba"><code class="highligher-rouge"><nobr>numba</nobr></code></a>
+
+  
+  
+  <a href="/tag/finance"><code class="highligher-rouge"><nobr>finance</nobr></code></a>
 
       </div>
     </div>

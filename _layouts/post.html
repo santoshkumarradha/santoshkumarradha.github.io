@@ -1,12 +1,23 @@
 ---
 layout: default
 ---
+{% include mathjax.html %}
 <div class="post">
 
   <header class="post-header">
     <h8 class="post-title">{{ page.title }}</h8>
-    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+        <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+        <p class="post-meta">
+      <span>tags: 
+    {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+    {% endfor %}
+  </span></p>
+
   </header>
+  
+
 
   <article class="post-content">
     {{ content }}
@@ -28,3 +39,4 @@ layout: default
   {% endif %}
 
 </div>
+{% include archive.html %}

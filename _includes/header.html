@@ -30,9 +30,15 @@
         <!-- Pages -->
         {% for page in site.pages %}
           {% if page.title and page.url != "/" %}
+            {% if page.robots != "noindex"%}
             <a class="page-link" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a>
+            
+            {% endif %}
           {% endif %}
         {% endfor %}
+
+
+
         <!-- github -->
         <a class="page-link" href="https://github.com/santoshkumarradha">Github</a>
         <!-- flicker -->
