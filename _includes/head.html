@@ -7,6 +7,16 @@
   {% endif %}
   <title>{{ site.name }}{% if page.title and page.url != "/" %} | {{ page.title }}{% endif %}</title>
   <meta name="description" content="{{ site.description }}">
+  <!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142155886-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-142155886-1');
+</script>
+<!-- /Google Analytics -->
 
   {% if site.serve_og_meta %}
     <meta property="og:site_name" content="{{ site.description }}" />
