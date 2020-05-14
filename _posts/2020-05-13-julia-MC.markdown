@@ -3,7 +3,7 @@ layout: post
 title:  Perovskite to Pseudospin - A Julia challenge
 date:   2020-05-13 16:40:16
 description: Hopefully trying out a FORTRAN/C alternative for Quantum codes
-tags: Julia Monte-carlo perovskite
+tags: Julia Monte-carlo perovskite physics coding
 mathjax: true
 ---
 

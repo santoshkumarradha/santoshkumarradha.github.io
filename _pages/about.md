@@ -15,10 +15,7 @@ description: <a href="">Department of Physics</a> Case Western Reserve Universit
 news: false
 social: true
 ---
-<div class="img_row">
-    <img class="col six" src="{{ site.baseurl }}/assets/img/prof.jpg">
-</div>
-
+<img src="{{ site.baseurl }}/assets/img/prof.jpg" class="cover" width="100%" height="500" />
 <br />
 
 Hi, I'm Santosh. I graduated from [NIT-Trichy](https://en.wikipedia.org/wiki/National_Institute_of_Technology,_Tiruchirappalli) with Bachelor's degree in Industrial Engineering and am currently working on my PhD in theoretical physics at [Case Western Reserve](https://en.wikipedia.org/wiki/Case_Western_Reserve_University) University. After a short stint in gravitational physics, I now work in a subfield of physics called Condensed Matter Theory (CMT). My research is focused on understanding emergent quantum phenomena in systems where a collection of quantum particles are put together ,especially fermions (electrons). In particular, I am interested in the emergent topology in both interacting and non interacting fermions and low energy excitations of them. Another interesting problem I work in involves systems where the approximation of weakly/non-interacting physics breaks down and strong correlations come into play. This leads to extremely weired physics including unconventional Superconductivity, Mott transitions, Correlated metals etc. I use both analytical and numerical tools involving Python/C/FORTRAN coding to solve equations in Higher Performance Clusters (HPCs)

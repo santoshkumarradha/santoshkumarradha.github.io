@@ -70,6 +70,12 @@
         <!-- Pages -->
         
           
+            
+          
+        
+          
+            
+          
         
           
             
@@ -77,6 +83,28 @@
         
           
         
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
           
         
           
@@ -94,6 +122,22 @@
             
             <a class="page-link" href="http://localhost:4000/publications/">Publications</a>
             
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
             
           
         
@@ -147,7 +191,9 @@ MathJax.Hub.Config({
 		scale: 85,
 		mtextFontInherit: true
 	}
-}); </script> <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js"></script>
+}); </script> 
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js"></script>
 <div class="post">
 
   <header class="post-header">
@@ -174,6 +220,9 @@ MathJax.Hub.Config({
       
       <a href="/tag/pysktb"><code class="highligher-rouge"><nobr>pysktb</nobr></code>&nbsp;</a>
     
+      
+      <a href="/tag/coding"><code class="highligher-rouge"><nobr>coding</nobr></code>&nbsp;</a>
+    
   </span></p>
 
   </header>
@@ -182,6 +231,7 @@ MathJax.Hub.Config({
 
   <article class="post-content">
     <p>Another appreciation post for numba. Couple of years ago, I had developed this package (<a href="https://github.com/santoshkumarradha/pysktb">pySKTB</a>) to help with calculating Eigen spectrum of system with co-dimensions $&gt;1$. This was done so that I could in theory do rudimentary testing of different symmetries and how it couples to the orbital/real-space symmetry. But one of the major problem I had was that the code was really clunky. Of course as is the case of all theoretical physics development, it happened because of adding bits and peaces when and wherever needed. After dabbling with numba, I learnt about the existence of couple of new tools like <code class="language-plaintext highlighter-rouge">line_profiler</code> which seems to be extremely useful for optimizing codes and I am baffled that i have never used this. But anyway, for people not familiar with this, it spits out time of run for each line in your code. Of-course the code being the beast it is, mine had every possible line sitting like a chump standing a solid ground. So I started with the biggest of a the chump, which was calculating $g_{ij}$, which is the $g$ matrix for connecting sites. Next comes the big catch, unlike normal jit, one cannot just add a decorator inside for this as calculating $g$ was done in a class. So the easiest plan i could think of was to add all numba functions in a separate module of optimized function and call it when needed from the main module’s class. So I took the calculation off and added it to a separate module that i called optimizer and made it something like</p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_gmat_jit</span><span class="p">(</span><span class="n">g_mat</span><span class="p">,</span><span class="n">all_iter</span><span class="p">,</span><span class="n">max_image</span><span class="p">,</span><span class="n">n_orbitals</span><span class="p">,</span><span class="n">bond_mat</span><span class="p">,</span><span class="n">dist_mat_vec</span><span class="p">,</span><span class="n">kpt_cart</span><span class="p">):</span>
 	<span class="k">for</span> <span class="n">ind_1</span><span class="p">,</span> <span class="p">(</span><span class="n">atom_1_i</span><span class="p">,</span> <span class="n">orbit_1_i</span><span class="p">,</span> <span class="n">element_1</span><span class="p">,</span> <span class="n">orbit_1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_iter</span><span class="p">):</span>
@@ -198,6 +248,7 @@ MathJax.Hub.Config({
 </code></pre></div></div>
 
 <p>This unfortunately seems to through error when <code class="language-plaintext highlighter-rouge">nopython=True</code>. This usually happens because of the use of non fundamental objects like custom class object inside jit, but as far as I can see there seems to be nothing like that. But ignoring that and running in nopython mode still gave a huge boost to the performance. Here is a bench mark of that with respect to number of sites in the system (represented by supercell)</p>
+
 <p align="center">
   <img width="50%" src="/assets/img/pysktb_numba.png" />
 </p>
@@ -213,7 +264,9 @@ MathJax.Hub.Config({
 <div class="lineHorizontal__container">
   <div class="lineHorizontal"></div>
 </div>
-<h2>Topics to explore</h2>
+
+
+ <h2>Topics to explore</h2>
 
 
 
@@ -223,7 +276,15 @@ MathJax.Hub.Config({
 
   
   
+  <a href="/tag/physics"><code class="highligher-rouge"><nobr>physics</nobr></code></a>
+
+  
+  
   <a href="/tag/numba"><code class="highligher-rouge"><nobr>numba</nobr></code></a>
+
+  
+  
+  <a href="/tag/coding"><code class="highligher-rouge"><nobr>coding</nobr></code></a>
 
   
   
@@ -240,10 +301,6 @@ MathJax.Hub.Config({
   
   
   <a href="/tag/pysktb"><code class="highligher-rouge"><nobr>pysktb</nobr></code></a>
-
-  
-  
-  <a href="/tag/physics"><code class="highligher-rouge"><nobr>physics</nobr></code></a>
 
   
   
