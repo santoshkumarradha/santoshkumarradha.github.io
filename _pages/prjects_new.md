@@ -30,7 +30,7 @@ My PhD is mainly focused on working with a new phase of matter called Topologica
 <!-- Perovskite project -->
 <div id="wrap">
     <img class="left" src="{{ site.baseurl }}/assets/img/perovs-thumb.png" width="220px">
-    <p><strong>Pseudo-Spin dynamics of Halide perovskites: </strong> Metal Halide ovskites special class of inorganic  systems which the next promising candidate for efficient solar cells next to Silicon. In this work, we try to understand the different phases this system can be in because of distortion by mapping them to a SO(3) anisotropic pseudo-spin Hamiltonian. This helped us predict a zoo of new meta stable structures that can possible be used for photo-chromatic applications. For ex, a transparent window that is also a solar cell which can be closed to stop all light by applying electric field. </p>
+    <p><strong>Pseudo-Spin dynamics of Halide perovskites: </strong> Metal Halide ovskites special class of inorganic  systems which the next promising candidate for efficient solar cells next to Silicon. In this work, we try to understand the different phases this system can be in because of distortion by mapping them to a SO(3) anisotropic pseudo-spin Hamiltonian. This helped us predict a zoo of new meta stable structures that can possible be used for photo-chromatic applications. For ex, a transparent window that is also a solar cell which can be closed to stop all light by applying electric field. [Read about it here](https://www.santoshkumarradha.me/blog/2020/julia-MC/)</p>
 </div>
 <!-- Gravity -->
 <div id="wrap">
