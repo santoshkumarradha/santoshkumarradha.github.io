@@ -16,6 +16,16 @@
   <title>Santosh Kumar Radha | Spin Waves from spin susceptibility</title>
   <meta name="description" content="Personal webpage
 ">
+  <!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142155886-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-142155886-1');
+</script>
+<!-- /Google Analytics -->
 
   
 
@@ -118,12 +128,26 @@
 
     <div class="page-content">
       <div class="wrapper">
-        
-<!-- https://docs.mathjax.org/en/latest/configuration.html#local-config-files -->
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js">
-</script>
-
+        <script type="text/x-mathjax-config">
+var font = "Neo-Euler";
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [['$','$']],
+		displayMath: [['\\[','\\]']],
+		processEscapes: true,
+	},
+	"SVG":{ 
+		font:font
+	},
+	"HTML-CSS": {
+		webFont: font,
+		imageFont: font,
+		preferredFont: font,
+		availableFonts: [],
+		scale: 85,
+		mtextFontInherit: true
+	}
+}); </script> <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js"></script>
 <div class="post">
 
   <header class="post-header">
@@ -156,14 +180,14 @@
 
 <p>We start by writing down the time ordered transverse spin susceptibility as</p>
 
-<p>\[\begin{equation}\chi^{+-}\left(\mathbf{r}, \mathbf{r}^{\prime}, t-t^{\prime}\right)=-\mathrm{i}\left\langle T\left(\hat{S}^{+}(\mathbf{r}, t) \hat{S}^{-}\left(\mathbf{r}^{\prime}, t^{\prime}\right)\right)\right\rangle\end{equation}\label{eq:2}\]</p>
+<script type="math/tex; mode=display">\begin{equation}\chi^{+-}\left(\mathbf{r}, \mathbf{r}^{\prime}, t-t^{\prime}\right)=-\mathrm{i}\left\langle T\left(\hat{S}^{+}(\mathbf{r}, t) \hat{S}^{-}\left(\mathbf{r}^{\prime}, t^{\prime}\right)\right)\right\rangle\end{equation}\label{eq:2}</script>
 
-<p>Here, $T$ denotes the time ordering while <script type="math/tex">\hat{S}^{\pm}(\mathbf{r}, t)=\hat{S}^{x}(\mathbf{r}, t) \pm \mathrm{i} \hat{S}^{y}(\mathbf{r}, t)</script> with $S_i$ being the spin density operators. Further let us impose collinearity in the system with the spin direction along $z$ which gives us <script type="math/tex">% <![CDATA[
+<p>Here, $T$ denotes the time ordering while $\hat{S}^{\pm}(\mathbf{r}, t)=\hat{S}^{x}(\mathbf{r}, t) \pm \mathrm{i} \hat{S}^{y}(\mathbf{r}, t)$ with $S_i$ being the spin density operators. Further let us impose collinearity in the system with the spin direction along $z$ which gives us <script type="math/tex">% <![CDATA[
 <S_x>=<S_y>=0 %]]></script>. Focusing on the $z$ component, we have that to be</p>
 
-<p>\[\begin{equation}2\left\langle\hat{S}^{z}(\mathbf{r}, t)\right\rangle=M(\mathbf{r})\end{equation}\label{eq:3}\]</p>
+<script type="math/tex; mode=display">\begin{equation}2\left\langle\hat{S}^{z}(\mathbf{r}, t)\right\rangle=M(\mathbf{r})\end{equation}\label{eq:3}</script>
 
-<p>where we have <script type="math/tex">M(\mathbf{r})=n^{\uparrow}(\mathbf{r})-n^{\downarrow}(\mathbf{r})</script> is the magnetic moment which for our case would be a vector given by $M_i(\mathbf{r}) \forall i \in$ atoms. (to be continued soon…)</p>
+<p>where we have $M(\mathbf{r})=n^{\uparrow}(\mathbf{r})-n^{\downarrow}(\mathbf{r})$ is the magnetic moment which for our case would be a vector given by $M_i(\mathbf{r}) \forall i \in$ atoms. (to be continued soon…)</p>
 
   </article>
 
@@ -208,6 +232,10 @@
 
   
   
+  <a href="/tag/perovskite"><code class="highligher-rouge"><nobr>perovskite</nobr></code></a>
+
+  
+  
   <a href="/tag/optimization"><code class="highligher-rouge"><nobr>optimization</nobr></code></a>
 
   
@@ -217,6 +245,14 @@
   
   
   <a href="/tag/Slaster-koster"><code class="highligher-rouge"><nobr>Slaster-koster</nobr></code></a>
+
+  
+  
+  <a href="/tag/Monte-carlo"><code class="highligher-rouge"><nobr>Monte-carlo</nobr></code></a>
+
+  
+  
+  <a href="/tag/Julia"><code class="highligher-rouge"><nobr>Julia</nobr></code></a>
 
       </div>
     </div>

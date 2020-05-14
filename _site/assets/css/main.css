@@ -411,6 +411,12 @@ p { margin-bottom: 1.5em; overflow: visible; /* this is what keep the <p> from w
 
 .post-link { display: block; font-size: 42px; }
 
+.bspace { margin-bottom: 1.5em; margin-top: 1.5em; }
+
+.codebox { border-radius: 5px; background-color: #faf3dd; padding: 3px; padding-left: 20px; font-size: 0.8em; }
+
+.footcite { font-size: 0.8em; font-style: italic; }
+
 .project { box-sizing: border-box; float: left; height: 250px; padding: 10px; vertical-align: middle; width: 33.33%; }
 .project .thumbnail { overflow: hidden; height: 200px; width: 100%; }
 .project .thumbnail img { height: auto; position: relative; left: -25%; top: -5%; width: 500px; }
