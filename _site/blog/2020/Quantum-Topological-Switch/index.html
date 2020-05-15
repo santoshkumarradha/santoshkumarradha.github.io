@@ -13,7 +13,7 @@
 
 
   
-  <title>Santosh Kumar Radha | Tag: Julia</title>
+  <title>Santosh Kumar Radha | Quantum Topological Switches</title>
   <meta name="description" content="Personal webpage
 ">
   <!-- Google Analytics -->
@@ -32,7 +32,7 @@
   <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
 
   <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/tag/Julia/">
+  <link rel="canonical" href="http://localhost:4000/blog/2020/Quantum-Topological-Switch/">
 </head>
 
 
@@ -182,17 +182,105 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="post">
-<h1>Tag: Julia</h1>
-<ul>
+        <script type="text/x-mathjax-config">
+var font = "Neo-Euler";
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [['$','$']],
+		displayMath: [['\\[','\\]']],
+		processEscapes: true,
+	},
+	"SVG":{ 
+		font:font
+	},
+	"HTML-CSS": {
+		webFont: font,
+		imageFont: font,
+		preferredFont: font,
+		availableFonts: [],
+		scale: 85,
+		mtextFontInherit: true
+	}
+}); </script> 
 
-  <li><a href="/blog/2020/julia-MC/">Perovskite to Pseudospin - A Julia challenge</a> (13 May 2020)<br>
-    Hopefully trying out a FORTRAN/C alternative for Quantum codes
-  </li>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js"></script>
+<div class="post">
 
-</ul>
+  <header class="post-header">
+    <h8 class="post-title">Quantum Topological Switches</h8>
+        <p class="post-meta">May 15, 2020</p>
+        <p class="post-meta">
+      <span>tags: 
+    
+      
+      <a href="/tag/physics"><code class="highligher-rouge"><nobr>physics</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/topology"><code class="highligher-rouge"><nobr>topology</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/quantum"><code class="highligher-rouge"><nobr>quantum</nobr></code>&nbsp;</a>
+    
+  </span></p>
+
+  </header>
+  
+
+
+  <article class="post-content">
+    <p>Our new paper titled <em>“Quantum topological switch and controllable quasi 1D wires in antimonene”</em><a href="#1">[1]</a> is up in arxiv, and here is a brief summery of the big idea proposed there.</p>
+
+<p>In our previous papers [<a href="#2">2</a>,<a href="#3">3</a>] we showed that a 2 Dimensional sheet of $p_x-p_y-p_z$ symmetry orbitals arranged in honeycomb lattice has very interesting effects, one of which is that the system is in a state of <em>weak</em> Topological Crystalline insulator. Although being <em>weak</em> is a misnomer and an interesting read is given here titled <em>The strong side of weak topological insulators</em><a href="#4">[4]</a>, the <em>weakness</em> of this system can be beautifully exploited. The protection of this weak surface state, in this system, is through the presence of inversion symmetry in the 2D system. Because of the buckled nature of the system, we show that applying a simple electric field perpendicular to the system (just like in case of gating) can break this inversion and thus gaps the surface state. This is shown in the figure <em>(a)</em>. Second devices uses almost the same principle, but instead apply electric field locally breaking the inversion at different regions which we showed to create 1D channel pathways inside the system, this is shown in <em>(b)</em>. This can in principle be used to design pixlated patches which can be used for configurable circuits that have unique 1D semi-conducting wire.</p>
+
+<figure>
+<p align="center">
+<img width="100%" min-width="50px" height="auto" src="/assets/img/illustration-05.png" />
+  <figcaption>Illustration of the two devices <i>(a)</i> topological quantum switch <i>(b)</i> quasi  1D domain wall channels <i>(c)</i> Configurable 1D wire in a pixilated local gated system</figcaption>
+</p>
+</figure>
+
+<p>Secondly, in <a href="#3">[3]</a> we showed that this system is a Higher Order Topological Insulator (HOTI), again protected by inversion symmetry. Thus again breaking the symmetry in this system breaks the $S_6$ symmetry the system is into $C_3$. This forces the anomalous fractional charge excitations in $S_6$ (which exists in 6 corners) to disappear and concentrate in $C_3$ symmetric fashion (3 corners) This is shown bellow</p>
+
+<figure>
+<p align="center">
+<img width="100%" src="/assets/img/c3break.png" />
+<figcaption> Before and after breaking the inversion symmetry and the corresponding eigen values</figcaption>
+</p>
+</figure>
+
+<hr />
+
+<h4 id="references">References</h4>
+<div class="footcite">
+<a id="1">[1]</a> 
+Radha, Santosh Kumar and Walter R. L. Lambrecht. “Topological quantum switch and controllable quasi 1D wires in antimonene.” (2020).
 </div>
-<hr>
+
+<div class="footcite">
+<a id="2">[2]</a> 
+Radha, Santosh Kumar, and Walter RL Lambrecht. "Buckled honeycomb group-$ V $--$ S_6 $ symmetric $(d-2) $ higher order topological insulators." arXiv preprint arXiv:2003.12656 (2020).
+</div>
+
+<div class="footcite">
+<a id="3">[3]</a> 
+Radha, Santosh Kumar, and Walter RL Lambrecht. "Topological band structure transitions in honeycomb antimonene as function of buckling." arXiv preprint arXiv:1912.03755 (2019).
+</div>
+
+<div class="footcite">
+<a id="4">[4]</a> 
+Kraus, Yaacov, Zohar Ringel, and Ady Stern. "The strong side of weak topological insulators." Bulletin of the American Physical Society 57 (2012).
+</div>
+
+  </article>
+
+  
+
+</div>
+<p></p>
+<div class="lineHorizontal__container">
+  <div class="lineHorizontal"></div>
+</div>
+
 
  <h2>Topics to explore</h2>
 
