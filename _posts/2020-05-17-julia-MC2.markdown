@@ -81,7 +81,7 @@ Dipole interaction energy can be derived and is given by
 
 $$\begin{equation}U_{\mathrm{dd}}=\frac{1}{4 \pi \epsilon_{0} r_{i j}^{3}}\left[\vec{\mu}_{i} \cdot \vec{\mu}_{j}-3 \frac{\left(\vec{\mu}_{i} \cdot \mathbf{r}_{i j}\right)\left(\mathbf{r}_{i j} \cdot \vec{\mu}_{j}\right)}{r_{i j}^{2}}\right]\end{equation} \label{eq:1}$$
 
-Where $\vec{\mu}_{i}$ is the dipole vector and  $r_{i j}$ is the vector connecting the dipoles. Here, for the sake of simplicity, we will ignore the pre-factors and code just the form of it. This doesn't take out any physics as for our case, the strength is arbitrary and infact controlled by the coupling between dipole energy and "bonding" energy. 
+Where $\mu_{i}$ is the dipole vector and  $r_{i j}$ is the vector connecting the dipoles. Here, for the sake of simplicity, we will ignore the pre-factors and code just the form of it. This doesn't take out any physics as for our case, the strength is arbitrary and infact controlled by the coupling between dipole energy and "bonding" energy. 
 
 ```julia
 # Function to get dipole orientation of a tetrahedron
@@ -127,7 +127,7 @@ $$\begin{equation}
 H=H_{d i p o l e}+ \mathcal{g} \cdot H_{b o n d}
 \end{equation}\label{eq:2}$$
 
-Just to make it easy, we will re-write \ref{eq:2} to $H=\mathcal{g_1}H_{d i p o l e}+ \mathcal{g_2} \cdot H_{b o n d}$ so that we can check the individual effect while debugging. So now we can calculate the above by
+Just to make it easy, we will re-write \ref{eq:2} to $H=\mathcal{g_1} \cdot H_{d i p o l e}+ \mathcal{g_2} \cdot H_{b o n d}$ so that we can check the individual effect while debugging. So now we can calculate the above by
 
 ```julia
 function get_rotation_energy_1(system,g1,g2,pos,axis,theta)

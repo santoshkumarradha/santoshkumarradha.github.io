@@ -421,7 +421,7 @@ figure { margin: 20px; /* adjust as needed */ }
 
 figure img { vertical-align: top; }
 
-figure figcaption { text-align: center; }
+figure figcaption { text-align: center; font-size: 0.8em; font-style: italic; margin: 10px; }
 
 .project { box-sizing: border-box; float: left; height: 250px; padding: 10px; vertical-align: middle; width: 33.33%; }
 .project .thumbnail { overflow: hidden; height: 200px; width: 100%; }
