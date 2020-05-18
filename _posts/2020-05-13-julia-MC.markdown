@@ -328,6 +328,9 @@ It is easy to see that a change in edge tetrahedrons (or their projected triangl
 
 Not bad for a quick 2 day foray into Julia. Will update as soon as I add more modules. Ciao.
 
+Part 2 continued [here](https://www.santoshkumarradha.me/blog/2020/julia-MC2/)
+
+Github repo of the project can be found [here](https://github.com/santoshkumarradha/pseudo-spin-perovskite)
 
 -----
 

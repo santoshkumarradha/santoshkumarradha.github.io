@@ -215,7 +215,7 @@ Just as a check, rotating the tetrahedron along the $[111]$ direction, (in which
 
 Next stop, MC...
 
-
+Github repo of the project can be found [here](https://github.com/santoshkumarradha/pseudo-spin-perovskite)
 -----
 
 #### References
