@@ -28,7 +28,7 @@ blog_name: Condensed diaries
 blog_description: Thoughts, ideas and comments of an intelectually discomforted mind ranging from topics in condensed matter physics to carnatic music
 
 # Pagination
-paginate: 4
+paginate: 20
 permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
