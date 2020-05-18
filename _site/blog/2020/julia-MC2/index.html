@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+
+
+
+
+
+  
+  <title>Santosh Kumar Radha | Perovskite to Pseudospin - A Julia challenge part-2</title>
+  <meta name="description" content="Personal webpage
+">
+  <!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142155886-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-142155886-1');
+</script>
+<!-- /Google Analytics -->
+
+  
+
+  <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2020/julia-MC2/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <a href="http://localhost:4000/"><strong>Santosh</strong> Radha</a>
+    </span>
+    
+
+    <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="http://localhost:4000/">About</a>
+
+        <!-- Blog -->
+        <a class="page-link" href="http://localhost:4000/blog/">Blog</a>
+
+        <!-- Pages -->
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+            <a class="page-link" href="http://localhost:4000/research/">Research</a>
+            
+            
+          
+        
+          
+            
+            <a class="page-link" href="http://localhost:4000/publications/">Publications</a>
+            
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+
+
+
+        <!-- github -->
+        <a class="page-link" href="https://github.com/santoshkumarradha">Github</a>
+        <!-- flicker -->
+        <!-- <a class="page-link" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj3sIP5grzdAhWmq1kKHX9zCA0QFjAAegQIBxAB&url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Fsantyphotography%2F&usg=AOvVaw3wIh929JJSpXgNa3DHo7cb">Photography</a> -->
+        <!-- design -->
+        <!-- <a class="page-link" href="https://www.behance.net/instrumentsantosh">Design</a> -->
+        <!-- CV link -->
+        <!-- <a class="page-link" href="http://localhost:4000/assets/pdf/CV.pdf">vitae</a> -->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <script type="text/x-mathjax-config">
+var font = "Neo-Euler";
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [['$','$']],
+		displayMath: [['\\[','\\]']],
+		processEscapes: true,
+	},
+	"SVG":{ 
+		font:font
+	},
+	"HTML-CSS": {
+		webFont: font,
+		imageFont: font,
+		preferredFont: font,
+		availableFonts: [],
+		scale: 85,
+		mtextFontInherit: true
+	}
+}); </script> 
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js"></script>
+<div class="post">
+
+  <header class="post-header">
+    <h8 class="post-title">Perovskite to Pseudospin - A Julia challenge part-2</h8>
+        <p class="post-meta">May 17, 2020</p>
+        <p class="post-meta">
+      <span>tags: 
+    
+      
+      <a href="/tag/Julia"><code class="highligher-rouge"><nobr>Julia</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/Monte-carlo"><code class="highligher-rouge"><nobr>Monte-carlo</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/perovskite"><code class="highligher-rouge"><nobr>perovskite</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/physics"><code class="highligher-rouge"><nobr>physics</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/coding"><code class="highligher-rouge"><nobr>coding</nobr></code>&nbsp;</a>
+    
+  </span></p>
+
+  </header>
+  
+
+
+  <article class="post-content">
+    <p>Continued from previous post that can be found <a href="http://www.santoshkumarradha.me/blog/2020/julia-MC/">here</a></p>
+
+<p>So, mid way through the project, I realized that I had written the expression for PBC tiny bit wrong and that lead to disastrous calculation of U value. So in this post, let us rectify that and add Dipole terms to the system.</p>
+
+<p>PBC for a given index, is actually given by <em>(after hours of breaking the nerves in my fried brain)</em></p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> pbc_1</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">index</span><span class="x">)</span>
+    <span class="n">eval_1</span><span class="x">(</span><span class="n">i</span><span class="x">,</span><span class="n">n</span><span class="x">)</span><span class="o">=</span> <span class="x">((</span><span class="n">abs</span><span class="x">(</span><span class="n">i</span><span class="x">)</span><span class="o">-</span><span class="mi">1</span><span class="x">)</span> <span class="o">÷</span> <span class="n">n</span><span class="x">)</span><span class="o">*</span><span class="x">((</span><span class="n">sign</span><span class="x">(</span><span class="n">i</span><span class="x">)</span><span class="o">+</span><span class="mi">1</span><span class="x">)</span> <span class="o">÷</span> <span class="mi">2</span><span class="x">)</span> <span class="o">-</span> <span class="x">((</span><span class="n">sign</span><span class="x">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="x">)</span><span class="o">-</span><span class="mi">1</span><span class="x">)</span> <span class="o">÷</span> <span class="mi">2</span><span class="x">)</span><span class="o">*</span><span class="x">((</span><span class="n">i</span><span class="o">-</span><span class="n">n</span><span class="x">)</span> <span class="o">÷</span> <span class="n">n</span><span class="x">)</span>
+    <span class="n">index_1</span><span class="x">(</span><span class="n">i</span><span class="x">,</span><span class="n">n</span><span class="x">)</span><span class="o">=</span><span class="x">((</span><span class="n">abs</span><span class="x">(</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="x">)</span> <span class="o">%</span> <span class="n">n</span><span class="x">)</span><span class="o">+</span><span class="mi">1</span><span class="x">)</span>
+    <span class="n">unit_size</span><span class="o">=</span><span class="n">size</span><span class="x">(</span><span class="n">system</span><span class="x">)[</span><span class="mi">1</span><span class="x">]</span>
+    <span class="n">a</span><span class="o">=</span><span class="x">(</span><span class="o">-</span><span class="n">system</span><span class="x">[</span><span class="mi">1</span><span class="x">,</span><span class="mi">1</span><span class="x">,</span><span class="mi">1</span><span class="x">]</span><span class="o">.</span><span class="n">ge</span><span class="o">+</span><span class="n">system</span><span class="x">[</span><span class="mi">1</span><span class="x">,</span><span class="mi">1</span><span class="x">,</span><span class="mi">2</span><span class="x">]</span><span class="o">.</span><span class="n">ge</span><span class="x">)[</span><span class="mi">3</span><span class="x">]</span><span class="o">*</span><span class="n">unit_size</span>
+    <span class="n">uc</span><span class="o">=</span><span class="n">eval_1</span><span class="o">.</span><span class="x">(</span><span class="n">index</span><span class="x">,</span><span class="n">unit_size</span><span class="x">)</span><span class="o">*</span><span class="n">a</span>
+    <span class="n">index_mod</span><span class="o">=</span><span class="n">index_1</span><span class="o">.</span><span class="x">(</span><span class="n">index</span><span class="x">,</span><span class="n">unit_size</span><span class="x">)</span><span class="c">#index .% (unit_size+1)</span>
+    <span class="k">return</span> <span class="n">index_mod</span><span class="x">,</span><span class="n">uc</span>
+    <span class="k">end</span><span class="x">;</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">pbc_1</code> takes the system (which stores the tetra object in 3D space in a $nxnxn$ matrix) and index to which it needs to calculate the corresponding PBC tetra unit inside the unit cell and also the value to which it needs to be moved by. It turns out because of the dispatch mechanism in Julia, it makes more sense to write a <em>dispatchable</em> function to get the system at a given index with PBC. Using the above <code class="language-plaintext highlighter-rouge">pbc_1</code> one can use something like</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#----get the tetra of a system at given index with PBC</span>
+<span class="k">function</span><span class="nf"> system_at_index</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">index</span><span class="x">)</span>
+    <span class="n">index_mod</span><span class="x">,</span><span class="n">uc</span><span class="o">=</span><span class="n">pbc_1</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">index</span><span class="x">)</span>
+    <span class="n">tetra_tmp</span><span class="o">=</span><span class="n">system</span><span class="x">[</span><span class="n">index_mod</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">index_mod</span><span class="x">[</span><span class="mi">2</span><span class="x">],</span><span class="n">index_mod</span><span class="x">[</span><span class="mi">3</span><span class="x">]]</span>
+    <span class="n">ge</span><span class="o">=</span><span class="n">tetra_tmp</span><span class="o">.</span><span class="n">ge</span><span class="o">+</span><span class="n">uc</span>
+    <span class="n">cl1</span><span class="o">=</span><span class="n">tetra_tmp</span><span class="o">.</span><span class="n">cl1</span><span class="o">+</span><span class="n">uc</span>
+    <span class="n">cl2</span><span class="o">=</span><span class="n">tetra_tmp</span><span class="o">.</span><span class="n">cl2</span><span class="o">+</span><span class="n">uc</span>
+    <span class="n">cl3</span><span class="o">=</span><span class="n">tetra_tmp</span><span class="o">.</span><span class="n">cl3</span><span class="o">+</span><span class="n">uc</span>
+    <span class="k">return</span> <span class="n">tetra</span><span class="x">(</span><span class="n">ge</span><span class="x">,</span><span class="n">cl1</span><span class="x">,</span><span class="n">cl2</span><span class="x">,</span><span class="n">cl3</span><span class="x">)</span>
+    <span class="k">end</span><span class="x">;</span>
+</code></pre></div></div>
+
+<p>And thus our NN function previously written, reduces to</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># NN algorithm</span>
+<span class="k">function</span><span class="nf"> get_nn_2</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">pos</span><span class="x">)</span>
+    <span class="n">tmp</span><span class="o">=</span><span class="kt">Array</span><span class="x">{</span><span class="kt">Float64</span><span class="x">,</span> <span class="mi">1</span><span class="x">}[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="k">in</span> <span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
+                <span class="n">index_tmp</span><span class="o">=</span><span class="n">pos</span><span class="o">+</span><span class="x">[</span><span class="n">i</span><span class="x">,</span><span class="n">j</span><span class="x">,</span><span class="n">k</span><span class="x">]</span>
+                <span class="n">temp</span><span class="o">=</span><span class="n">system_at_index</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">index_tmp</span><span class="x">)</span>
+                <span class="n">push!</span><span class="x">(</span><span class="n">tmp</span><span class="x">,</span><span class="n">temp</span><span class="o">.</span><span class="n">cl1</span><span class="x">)</span>
+                <span class="n">push!</span><span class="x">(</span><span class="n">tmp</span><span class="x">,</span><span class="n">temp</span><span class="o">.</span><span class="n">cl2</span><span class="x">)</span>
+                <span class="n">push!</span><span class="x">(</span><span class="n">tmp</span><span class="x">,</span><span class="n">temp</span><span class="o">.</span><span class="n">cl3</span><span class="x">)</span>
+            <span class="k">end</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">tmp</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Having corrected this, we can now start writing the dipole equation. For a given set of dipoles as shown bellow,</p>
+
+<p align="center">
+<figure>
+    <p align="center">
+    <img width="50%" min-width="50px" height="auto" src="/assets/img/dipole.png" />
+    <p align="center">
+      <figcaption>dipole-dipole interaction</figcaption>
+    </p>
+    </p>
+</figure>
+</p>
+
+<p>Dipole interaction energy can be derived and is given by</p>
+
+<script type="math/tex; mode=display">\begin{equation}U_{\mathrm{dd}}=\frac{1}{4 \pi \epsilon_{0} r_{i j}^{3}}\left[\vec{\mu}_{i} \cdot \vec{\mu}_{j}-3 \frac{\left(\vec{\mu}_{i} \cdot \mathbf{r}_{i j}\right)\left(\mathbf{r}_{i j} \cdot \vec{\mu}_{j}\right)}{r_{i j}^{2}}\right]\end{equation} \label{eq:1}</script>
+
+<p>Where $\vec{\mu}<em>{i}$ is the dipole vector and  $r</em>{i j}$ is the vector connecting the dipoles. Here, for the sake of simplicity, we will ignore the pre-factors and code just the form of it. This doesn’t take out any physics as for our case, the strength is arbitrary and infact controlled by the coupling between dipole energy and “bonding” energy.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Function to get dipole orientation of a tetrahedron</span>
+<span class="k">function</span><span class="nf"> get_dipol_vec</span><span class="x">(</span><span class="n">tetra</span><span class="o">::</span><span class="n">tetra</span><span class="x">)</span>
+    <span class="k">return</span> <span class="x">(</span><span class="n">tetra</span><span class="o">.</span><span class="n">ge</span> <span class="o">-</span> <span class="x">(</span><span class="n">tetra</span><span class="o">.</span><span class="n">cl1</span><span class="o">+</span><span class="n">tetra</span><span class="o">.</span><span class="n">cl2</span><span class="o">+</span><span class="n">tetra</span><span class="o">.</span><span class="n">cl3</span><span class="x">)</span><span class="o">/</span><span class="mi">3</span><span class="x">)</span><span class="o">/</span><span class="n">norm</span><span class="x">(</span><span class="n">tetra</span><span class="o">.</span><span class="n">ge</span> <span class="o">-</span> <span class="x">(</span><span class="n">tetra</span><span class="o">.</span><span class="n">cl1</span><span class="o">+</span><span class="n">tetra</span><span class="o">.</span><span class="n">cl2</span><span class="o">+</span><span class="n">tetra</span><span class="o">.</span><span class="n">cl3</span><span class="x">)</span><span class="o">/</span><span class="mi">3</span><span class="x">)</span>
+<span class="k">end</span>
+
+
+<span class="c"># Get the distance  vector between two tetrahedrons supplying pl will plot it in pl</span>
+<span class="k">function</span><span class="nf"> get_dipole_dist</span><span class="x">(</span><span class="n">tetra1</span><span class="o">::</span><span class="n">tetra</span><span class="x">,</span><span class="n">tetra2</span><span class="o">::</span><span class="n">tetra</span><span class="x">,</span><span class="n">pl</span><span class="o">=</span><span class="nb">nothing</span><span class="x">)</span>
+    <span class="n">r1</span><span class="o">=</span><span class="x">(</span><span class="n">tetra1</span><span class="o">.</span><span class="n">ge</span><span class="o">+</span><span class="n">tetra1</span><span class="o">.</span><span class="n">cl1</span><span class="o">+</span><span class="n">tetra1</span><span class="o">.</span><span class="n">cl2</span><span class="o">+</span><span class="n">tetra1</span><span class="o">.</span><span class="n">cl3</span><span class="x">)</span><span class="o">/</span><span class="mi">4</span>
+    <span class="n">r2</span><span class="o">=</span><span class="x">(</span><span class="n">tetra2</span><span class="o">.</span><span class="n">ge</span><span class="o">+</span><span class="n">tetra2</span><span class="o">.</span><span class="n">cl1</span><span class="o">+</span><span class="n">tetra2</span><span class="o">.</span><span class="n">cl2</span><span class="o">+</span><span class="n">tetra2</span><span class="o">.</span><span class="n">cl3</span><span class="x">)</span><span class="o">/</span><span class="mi">4</span>
+    <span class="k">if</span> <span class="n">pl</span> <span class="o">==</span> <span class="nb">nothing</span>
+        <span class="k">return</span> <span class="n">r1</span><span class="o">-</span><span class="n">r2</span>
+    <span class="k">else</span>
+        <span class="n">plot_tetra</span><span class="x">(</span><span class="n">tetra1</span><span class="x">,</span><span class="n">pl</span><span class="x">)</span>
+        <span class="n">plot_tetra</span><span class="x">(</span><span class="n">tetra2</span><span class="x">,</span><span class="n">pl</span><span class="x">)</span>
+        <span class="n">plot!</span><span class="x">(</span><span class="n">pl</span><span class="x">,[</span><span class="n">i</span><span class="x">[</span><span class="mi">1</span><span class="x">]</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="x">[</span><span class="n">r1</span><span class="x">,</span><span class="n">r2</span><span class="x">]],[</span><span class="n">i</span><span class="x">[</span><span class="mi">2</span><span class="x">]</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="x">[</span><span class="n">r1</span><span class="x">,</span><span class="n">r2</span><span class="x">]],[</span><span class="n">i</span><span class="x">[</span><span class="mi">3</span><span class="x">]</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="x">[</span><span class="n">r1</span><span class="x">,</span><span class="n">r2</span><span class="x">]],</span><span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="x">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="x">,</span><span class="n">label</span><span class="o">=</span><span class="s">"connecting vector r12"</span><span class="x">)</span>
+        <span class="k">end</span><span class="x">;</span>
+    <span class="k">end</span><span class="x">;</span>
+</code></pre></div></div>
+
+<p>Above code <code class="language-plaintext highlighter-rouge">get_dipol_vec</code> calculates the dipole vector orientation for a given tetrahedron which is nothing but the distance of $B$ atom to the center of the triangle formed by 3 $X$ atoms. <code class="language-plaintext highlighter-rouge">get_dipole_dist</code> calculates the vector connecting the two centers of the tetrahedrons.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> get_dipole_energy_between_tetra</span><span class="x">(</span><span class="n">tetra1</span><span class="o">::</span><span class="n">tetra</span><span class="x">,</span><span class="n">tetra2</span><span class="o">::</span><span class="n">tetra</span><span class="x">)</span>
+    <span class="n">r12</span><span class="o">=</span><span class="n">get_dipole_dist</span><span class="x">(</span><span class="n">tetra1</span><span class="x">,</span><span class="n">tetra2</span><span class="x">)</span>
+    <span class="n">r12</span><span class="o">=</span><span class="n">r12</span>
+    <span class="n">d1</span><span class="o">=</span><span class="n">get_dipol_vec</span><span class="x">(</span><span class="n">tetra1</span><span class="x">)</span>
+    <span class="n">d2</span><span class="o">=</span><span class="n">get_dipol_vec</span><span class="x">(</span><span class="n">tetra2</span><span class="x">)</span>
+    <span class="n">four_pe0</span><span class="o">=</span> <span class="mi">9</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">9</span> <span class="c">#1/4πe0 in N⋅m^2⋅C^−2</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">dot</span><span class="x">(</span><span class="n">d1</span><span class="x">,</span><span class="n">d2</span><span class="x">)</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="x">(</span><span class="n">dot</span><span class="x">(</span><span class="n">d1</span><span class="x">,</span><span class="n">r12</span><span class="x">)</span><span class="o">*</span><span class="n">dot</span><span class="x">(</span><span class="n">d2</span><span class="x">,</span><span class="n">r12</span><span class="x">))</span>
+    <span class="k">end</span><span class="x">;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">get_dipole_energy_between_tetra</code> implements the \ref{eq:1} formula without the scaling which can be a parameter to be tuned. Now we can actually calculate the change  total energy of a single twist of a tetrahedron, which is actually the quantity that determines the acceptance of Monte carlo. For this, we write a function that takes the system, position of the index to make flip and finally axis and theta to rotate the position about. We also need the scaling factor for calculating the two competing energy which is given by</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+H=H_{d i p o l e}+ \mathcal{g} \cdot H_{b o n d}
+\end{equation}\label{eq:2}</script>
+
+<p>Just to make it easy, we will re-write \ref{eq:2} to $H=\mathcal{g_1}H_{d i p o l e}+ \mathcal{g_2} \cdot H_{b o n d}$ so that we can check the individual effect while debugging. So now we can calculate the above by</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> get_rotation_energy_1</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">g1</span><span class="x">,</span><span class="n">g2</span><span class="x">,</span><span class="n">pos</span><span class="x">,</span><span class="n">axis</span><span class="x">,</span><span class="n">theta</span><span class="x">)</span>
+    <span class="n">system_test</span><span class="o">=</span><span class="n">copy</span><span class="x">(</span><span class="n">system</span><span class="x">)</span>
+    <span class="n">system_test</span><span class="x">[</span><span class="n">pos</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">pos</span><span class="x">[</span><span class="mi">2</span><span class="x">],</span><span class="n">pos</span><span class="x">[</span><span class="mi">3</span><span class="x">]]</span><span class="o">=</span>
+            <span class="n">rot_tetra_test_1</span><span class="x">(</span><span class="n">system_at_index</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">pos</span><span class="x">),</span><span class="n">axis</span><span class="x">,</span><span class="n">theta</span><span class="x">);</span>
+    <span class="n">nn</span><span class="o">=</span><span class="x">[[</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="o">-</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="o">-</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="o">-</span><span class="mi">1</span><span class="x">]]</span>
+    <span class="n">u</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">nn</span>
+        <span class="n">ind</span><span class="x">,</span><span class="n">_</span><span class="o">=</span><span class="n">pbc_1</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">pos</span><span class="o">+</span><span class="n">i</span><span class="x">)</span>
+        <span class="n">u</span><span class="o">+=</span><span class="x">(</span><span class="n">get_mean_var</span><span class="x">(</span><span class="n">system_test</span><span class="x">,</span><span class="n">ind</span><span class="x">,</span><span class="s">"var"</span><span class="x">)</span><span class="o">-</span><span class="n">get_mean_var</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">ind</span><span class="x">,</span><span class="s">"var"</span><span class="x">))</span>
+    <span class="k">end</span>
+    <span class="n">d</span><span class="o">=</span><span class="n">get_dipole_energy</span><span class="x">(</span><span class="n">system_test</span><span class="x">,</span><span class="n">pos</span><span class="x">)</span><span class="o">-</span><span class="n">get_dipole_energy</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">pos</span><span class="x">)</span>
+    <span class="k">return</span> <span class="n">g1</span><span class="o">*</span><span class="n">u</span><span class="o">+</span><span class="n">g2</span><span class="o">*</span><span class="n">d</span>
+    <span class="k">end</span><span class="x">;</span>
+</code></pre></div></div>
+
+<p>And thus, we have written the entire set of code to calculate the necessary equations. The beauty of Julia is that it is both a lisp language as well as a JIT one, Thus we can plot beautiful objects that are as fast as fortran. So, before leaving lets plot the Dipole energy and U while rotating. Here is the code.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dipole</span><span class="o">=</span><span class="x">[]</span>
+<span class="k">function</span><span class="nf"> rot_draw</span><span class="x">(</span><span class="n">i</span><span class="x">,</span><span class="n">pl2</span><span class="x">,</span><span class="n">pl3</span><span class="x">)</span>
+    <span class="n">pl</span><span class="o">=</span><span class="n">plot</span><span class="x">()</span><span class="c">#plot(xlim=(-2,10),ylim=(-2,10))</span>
+    <span class="n">theta</span><span class="o">=</span><span class="n">i</span>
+    <span class="n">axis</span><span class="o">=</span><span class="x">[</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="mf">1.</span><span class="x">]</span>
+    <span class="n">system_test</span><span class="o">=</span><span class="n">copy</span><span class="x">(</span><span class="n">system</span><span class="x">)</span>
+    <span class="n">pos_1</span><span class="o">=</span><span class="x">[</span><span class="mi">2</span><span class="x">,</span><span class="mi">2</span><span class="x">,</span><span class="mi">2</span><span class="x">]</span>
+    <span class="n">nn</span><span class="o">=</span><span class="x">[[</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="o">-</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="o">-</span><span class="mi">1</span><span class="x">,</span><span class="mi">0</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">],[</span><span class="mi">0</span><span class="x">,</span><span class="mi">0</span><span class="x">,</span><span class="o">-</span><span class="mi">1</span><span class="x">]]</span>
+    <span class="n">system_test</span><span class="x">[</span><span class="n">pos_1</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">pos_1</span><span class="x">[</span><span class="mi">2</span><span class="x">],</span><span class="n">pos_1</span><span class="x">[</span><span class="mi">3</span><span class="x">]]</span><span class="o">=</span>
+            <span class="n">rot_tetra_test_1</span><span class="x">(</span><span class="n">system_at_index</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">pos_1</span><span class="x">),</span><span class="n">axis</span><span class="x">,</span><span class="n">theta</span><span class="x">);</span>
+    <span class="n">tetra1</span><span class="o">=</span><span class="n">system_test</span><span class="x">[</span><span class="n">pos_1</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">pos_1</span><span class="x">[</span><span class="mi">2</span><span class="x">],</span><span class="n">pos_1</span><span class="x">[</span><span class="mi">3</span><span class="x">]]</span>
+    <span class="n">plot_tetra</span><span class="x">(</span><span class="n">tetra1</span><span class="x">,</span><span class="n">pl</span><span class="x">)</span>
+    <span class="n">d</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">nn</span>
+        <span class="n">ge</span><span class="o">=</span><span class="x">(</span><span class="n">tetra1</span><span class="o">.</span><span class="n">ge</span><span class="o">+</span><span class="n">tetra1</span><span class="o">.</span><span class="n">cl1</span><span class="o">+</span><span class="n">tetra1</span><span class="o">.</span><span class="n">cl2</span><span class="o">+</span><span class="n">tetra1</span><span class="o">.</span><span class="n">cl3</span><span class="x">)</span><span class="o">/</span><span class="mi">4</span>
+        <span class="n">pos_new</span><span class="o">=</span><span class="n">pos_1</span><span class="o">+</span><span class="n">i</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">system_at_index</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">pos_new</span><span class="x">)</span>
+        <span class="n">tetra2</span><span class="o">=</span><span class="x">(</span><span class="n">temp</span><span class="o">.</span><span class="n">ge</span><span class="o">+</span><span class="n">temp</span><span class="o">.</span><span class="n">cl1</span><span class="o">+</span><span class="n">temp</span><span class="o">.</span><span class="n">cl2</span><span class="o">+</span><span class="n">temp</span><span class="o">.</span><span class="n">cl3</span><span class="x">)</span><span class="o">/</span><span class="mi">4</span>
+        <span class="n">plot!</span><span class="x">(</span><span class="n">pl</span><span class="x">,[</span><span class="n">ge</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">tetra2</span><span class="x">[</span><span class="mi">1</span><span class="x">]],[</span><span class="n">ge</span><span class="x">[</span><span class="mi">2</span><span class="x">],</span><span class="n">tetra2</span><span class="x">[</span><span class="mi">2</span><span class="x">]],[</span><span class="n">ge</span><span class="x">[</span><span class="mi">3</span><span class="x">],</span><span class="n">tetra2</span><span class="x">[</span><span class="mi">3</span><span class="x">]],</span><span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="x">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="x">,</span><span class="n">label</span><span class="o">=</span><span class="s">""</span><span class="x">)</span>
+        <span class="n">plot_tetra</span><span class="x">(</span><span class="n">temp</span><span class="x">,</span><span class="n">pl</span><span class="x">)</span>
+        <span class="n">d</span><span class="o">+=</span><span class="n">get_dipole_energy_between_tetra</span><span class="x">(</span><span class="n">tetra1</span><span class="x">,</span><span class="n">temp</span><span class="x">)</span>
+        <span class="k">end</span><span class="x">;</span>
+    <span class="n">scatter!</span><span class="x">(</span><span class="n">pl2</span><span class="x">,[</span><span class="n">i</span><span class="o">/</span><span class="x">(</span><span class="nb">π</span><span class="x">)],[</span><span class="n">d</span><span class="x">],</span><span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="x">,</span><span class="n">label</span><span class="o">=</span><span class="s">""</span><span class="x">,</span><span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="x">)</span>
+    <span class="n">plot</span><span class="x">(</span><span class="n">pl</span><span class="x">,</span><span class="n">pl2</span><span class="x">,</span><span class="n">size</span> <span class="o">=</span> <span class="x">(</span><span class="mi">800</span><span class="x">,</span> <span class="mi">400</span><span class="x">),</span><span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="x">)</span>
+    <span class="n">u</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">nn</span>
+        <span class="n">ind</span><span class="x">,</span><span class="n">_</span><span class="o">=</span><span class="n">pbc_1</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">pos_1</span><span class="o">+</span><span class="n">i</span><span class="x">)</span>
+        <span class="n">u</span><span class="o">+=</span><span class="x">(</span><span class="n">get_mean_var</span><span class="x">(</span><span class="n">system_test</span><span class="x">,</span><span class="n">ind</span><span class="x">,</span><span class="s">"var"</span><span class="x">)</span><span class="o">-</span><span class="n">get_mean_var</span><span class="x">(</span><span class="n">system</span><span class="x">,</span><span class="n">ind</span><span class="x">,</span><span class="s">"var"</span><span class="x">))</span>
+        <span class="k">end</span><span class="x">;</span>
+    <span class="n">l</span> <span class="o">=</span>  <span class="nd">@layout</span><span class="x">([</span><span class="n">a</span> <span class="x">[</span><span class="n">b</span><span class="x">;</span> <span class="n">c</span><span class="x">]])</span>
+    <span class="n">scatter!</span><span class="x">(</span><span class="n">pl3</span><span class="x">,[</span><span class="n">i</span><span class="o">/</span><span class="x">(</span><span class="nb">π</span><span class="x">)],[</span><span class="n">u</span><span class="x">],</span><span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="x">,</span><span class="n">label</span><span class="o">=</span><span class="s">""</span><span class="x">,</span><span class="n">color</span><span class="o">=</span><span class="s">"yellow"</span><span class="x">)</span>
+    <span class="n">plot</span><span class="x">(</span><span class="n">pl</span><span class="x">,</span><span class="n">pl2</span><span class="x">,</span><span class="n">pl3</span><span class="x">,</span><span class="n">size</span> <span class="o">=</span> <span class="x">(</span><span class="mi">800</span><span class="x">,</span> <span class="mi">400</span><span class="x">),</span><span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="x">,</span><span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="x">)</span>
+    <span class="k">end</span><span class="x">;</span>
+<span class="n">Plots</span><span class="o">.</span><span class="n">gr</span><span class="x">()</span>
+<span class="n">pl2</span><span class="o">=</span><span class="n">plot</span><span class="x">(</span><span class="n">size</span> <span class="o">=</span> <span class="x">(</span><span class="mi">800</span><span class="x">,</span> <span class="mi">800</span><span class="x">),</span><span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="x">,</span><span class="n">ylim</span><span class="o">=</span><span class="x">(</span><span class="o">-</span><span class="mi">150</span><span class="x">,</span><span class="mi">250</span><span class="x">),</span><span class="n">xlim</span><span class="o">=</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span><span class="mi">2</span><span class="x">),</span><span class="n">xlabel</span><span class="o">=</span><span class="s">"Angle (π)"</span><span class="x">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">"Dipole"</span><span class="x">)</span>
+<span class="n">pl3</span><span class="o">=</span><span class="n">plot</span><span class="x">(</span><span class="n">size</span> <span class="o">=</span> <span class="x">(</span><span class="mi">800</span><span class="x">,</span> <span class="mi">300</span><span class="x">),</span><span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="x">,</span><span class="n">ylim</span><span class="o">=</span><span class="x">(</span><span class="o">-.</span><span class="mi">5</span><span class="x">,</span><span class="mi">2</span><span class="x">),</span><span class="n">xlim</span><span class="o">=</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span><span class="mi">2</span><span class="x">),</span><span class="n">xlabel</span><span class="o">=</span><span class="s">"Angle (π)"</span><span class="x">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">"U"</span><span class="x">)</span>
+<span class="n">anim</span> <span class="o">=</span> <span class="nd">@animate</span> <span class="k">for</span> <span class="n">i</span> <span class="n">∈</span> <span class="kt">LinRange</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="x">,</span><span class="mi">100</span><span class="x">)</span>
+    <span class="n">rot_draw</span><span class="x">(</span><span class="n">i</span><span class="x">,</span><span class="n">pl2</span><span class="x">,</span><span class="n">pl3</span><span class="x">)</span>
+<span class="k">end</span>
+<span class="n">gif</span><span class="x">(</span><span class="n">anim</span><span class="x">,</span> <span class="s">"animations/complete1_111.gif"</span><span class="x">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="mi">20</span><span class="x">)</span>
+</code></pre></div></div>
+<p>We will do it for various rotation axis</p>
+
+<figure>
+    <img width="100%" height="auto" src="/assets/img/complete_110.gif" />
+    <figcaption>along [110] direction</figcaption>
+</figure>
+
+<figure>
+    <img width="100%" height="auto" src="/assets/img/complete_100.gif" />
+    <figcaption>along [100] direction</figcaption>
+</figure>
+
+<p>Just as a check, rotating the tetrahedron along the $[111]$ direction, (in which it is oriented at) should not change the dipole, but because of the $C_3$ symmetry of the tetrahedron, one should see a 3 fold symmetry in NN or Bonding energy which is seen bellow !</p>
+
+<figure>
+    <img width="100%" height="auto" src="/assets/img/complete_111.gif" />
+    <figcaption>along [111] direction</figcaption>
+</figure>
+
+<p>Next stop, MC…</p>
+
+<hr />
+
+<h4 id="references">References</h4>
+<div class="footcite">
+<a id="1">[1]</a> 
+Radha, Santosh Kumar, and Walter R. L. Lambrecht. “Understanding the Crystallographic Phase Relations in Alkali‐Trihalogeno‐Germanates in Terms of Ferroelectric or Antiferroelectric Arrangements of the Tetrahedral GeX$_3$ Units.” Advanced Electronic Materials 6.2 (2019): 1900887. Crossref. Web.
+</div>
+<div class="footcite">
+<a id="2">[2]</a> 
+Radha, Santosh Kumar, Churna Bhandari, and Walter RL Lambrecht. "Distortion modes in halide perovskites: To twist or to stretch, a matter of tolerance and lone pairs." Physical Review Materials 2.6 (2018): 063605.
+</div>
+
+  </article>
+
+  
+
+</div>
+<p></p>
+<div class="lineHorizontal__container">
+  <div class="lineHorizontal"></div>
+</div>
+
+
+ <h2>Topics to explore</h2>
+
+
+
+  
+  
+  <a href="/tag/physics"><code class="highligher-rouge"><nobr>physics</nobr></code></a>
+
+  
+  
+  <a href="/tag/coding"><code class="highligher-rouge"><nobr>coding</nobr></code></a>
+
+  
+  
+  <a href="/tag/python"><code class="highligher-rouge"><nobr>python</nobr></code></a>
+
+  
+  
+  <a href="/tag/perovskite"><code class="highligher-rouge"><nobr>perovskite</nobr></code></a>
+
+  
+  
+  <a href="/tag/numba"><code class="highligher-rouge"><nobr>numba</nobr></code></a>
+
+  
+  
+  <a href="/tag/Monte-carlo"><code class="highligher-rouge"><nobr>Monte-carlo</nobr></code></a>
+
+  
+  
+  <a href="/tag/Julia"><code class="highligher-rouge"><nobr>Julia</nobr></code></a>
+
+  
+  
+  <a href="/tag/topology"><code class="highligher-rouge"><nobr>topology</nobr></code></a>
+
+  
+  
+  <a href="/tag/tight-binding"><code class="highligher-rouge"><nobr>tight-binding</nobr></code></a>
+
+  
+  
+  <a href="/tag/susceptibility"><code class="highligher-rouge"><nobr>susceptibility</nobr></code></a>
+
+  
+  
+  <a href="/tag/spin-waves"><code class="highligher-rouge"><nobr>spin-waves</nobr></code></a>
+
+  
+  
+  <a href="/tag/quantum"><code class="highligher-rouge"><nobr>quantum</nobr></code></a>
+
+  
+  
+  <a href="/tag/pysktb"><code class="highligher-rouge"><nobr>pysktb</nobr></code></a>
+
+  
+  
+  <a href="/tag/optimization"><code class="highligher-rouge"><nobr>optimization</nobr></code></a>
+
+  
+  
+  <a href="/tag/finance"><code class="highligher-rouge"><nobr>finance</nobr></code></a>
+
+  
+  
+  <a href="/tag/Slaster-koster"><code class="highligher-rouge"><nobr>Slaster-koster</nobr></code></a>
+
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2020 Santosh Kumar Radha.
+    
+    
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="http://localhost:4000/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+<script src="http://localhost:4000/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.min.css">
+
+
+
+
+  </body>
+
+</html>
