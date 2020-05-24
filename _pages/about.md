@@ -33,4 +33,12 @@ Things you will find me doing
 - Power lifting :weight_lifting_man:
 - Searching for my next cup of [filter coffee](https://en.wikipedia.org/wiki/Indian_filter_coffee) :coffee:
 
-<p style="color:darkgrey;font-size:12px;font-style: italic">I have worked on innumerable problems that you would call humble, but which I enjoyed and felt very good about because I sometimes could partially succeed...No problem is too small or too trivial if we can really do something about it. - Richard P. Feynman</p>
+<p style="color:darkgrey;font-size:13px">I have worked on innumerable problems that you would call humble, but which I enjoyed and felt very good about because I sometimes could partially succeed...No problem is too small or too trivial if we can really do something about it. - Richard P. Feynman</p>
+
+---
+Recent Blog posts:
+<div class="blog-index">  
+{% for post in site.posts limit:3 %}
+{% include post_detail.html %}
+{% endfor %}
+</div>
