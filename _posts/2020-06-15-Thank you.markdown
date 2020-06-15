@@ -1,0 +1,25 @@
+---
+layout: post
+title:  Thank you, Walter
+date:   2020-06-14 16:40:16
+description: Ode to my advisor
+tags: physics advisor
+mathjax: true
+---
+It was the end of my first year of graduate school, I entered room 104 Rockefeller. The next thing I knew I was crouched in a chair in Walter's office with a notebook on my knee and focused with everything I had on an impromptu lecture he was giving me on a a subject I dint have the slightest clue on - Density Functional Theory. I had barely introduced myself when he’d started banging out equations on his trusted *A4* sheets that often lay scattered in his desk. Trying to follow was like learning a new game, with strangely shaped pieces and arbitrary rules. It was a challenge, but I was excited to be talking to a real physicist about his real research. At the end of that meeting, I told him about my inexperience in condensed matter physics (Being an engineer who happened to work in gravitational physics, I barely knew what a band structure was), he smiled and said - *you can pick it up*, and so begin the journey. For encouraging and guiding me in this uncharted territory, __*thank you*__.
+
+
+<p align="center">
+<figure>
+    <p align="center">
+    <img width="100%" height="auto" src="{{ site.baseurl }}/assets/img/board1.jpeg"/>
+    <p align="center">
+      <figcaption>Figuring out the symmetries in D<sub>3d</sub> group at Rock-104</figcaption>
+    </p>
+    </p>
+</figure>
+</p>
+
+From then, throughout my 4 years here, we would convene in Walter’s office and, like our first meeting, I would focus on following his logic and asking questions while he paced back and forth, thinking out loud, and banging out equations on the board. There where probably a lot of times when we had to close the door to not let the excitement of our discussions disturb our next door neighbors. At some point, after three or four hours, he might say something like “Well let's think about it for some time!” that signaled that he was happy enough with the direction he had found to let me forge ahead the path on my own, meaning I would spend the next day or two doing the detailed calculations that we speculated would take us to the next landmark. Sometimes, the path would be clear, but more often than not, there would be obstacle in the way. Either way, I would report back and then we would sink back into another session, only to realize thorough a call from his home, that it is half past 7. To the long hours spent explaining and exploring physics, __*thank you*__.
+
+<p style='text-align: right; font-style:italic;'> Thank you, Walter </p>
