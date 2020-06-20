@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Thank you, Walter
+title:  Thank you. A PhD journey with Walter R.L Lambrecht.
 date:   2020-06-14 16:40:16
 description: Ode to my advisor
 tags: physics advisor
