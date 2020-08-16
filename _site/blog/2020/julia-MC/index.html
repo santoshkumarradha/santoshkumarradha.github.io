@@ -178,6 +178,10 @@
           
         
           
+            
+          
+        
+          
         
           
         
@@ -276,25 +280,25 @@ MathJax.Hub.Config({
 
 <p>Okay, so having said all these, the goal for future <em>(read current)</em> work was to predict if such transitions could be realized and if so, how much of an electric field or Temperature difference does one need to do that. A viable approach for this would be to write down the spin Hamiltonian and derive a susuptablity tensor. The Hamiltonian for this system when one considers only a <em>up</em> and <em>down</em> orientation of the pseudo spins turns out to be</p>
 
-<script type="math/tex; mode=display">\begin{equation}
+\[\begin{equation}
 H=H_{d i p o l e}+ \mathcal{g} \cdot H_{b o n d}
-\end{equation}\label{eq:1}</script>
+\end{equation}\label{eq:1}\]
 
-<script type="math/tex; mode=display">H_{d i p o l e}=J_{\|} \sum_{\langle i j\rangle} S_{i \|} S_{j \|}+J_{\perp} \sum_{\langle i j\rangle} \mathbf{S}_{i \perp} \cdot \mathbf{S}_{j \perp}</script>
+\[H_{d i p o l e}=J_{\|} \sum_{\langle i j\rangle} S_{i \|} S_{j \|}+J_{\perp} \sum_{\langle i j\rangle} \mathbf{S}_{i \perp} \cdot \mathbf{S}_{j \perp}\]
 
-<script type="math/tex; mode=display">H_{b o n d}=-U \sum_{\langle i j\rangle} \Theta\left(S_{i \|} S_{j \|}\right)</script>
+\[H_{b o n d}=-U \sum_{\langle i j\rangle} \Theta\left(S_{i \|} S_{j \|}\right)\]
 
 <p>Where $\mathcal{g}$ is the coupling constant. This some-what brutal expression can still be solved and shown to have the perovskite and monoclinic as ground state solution based on the sign of $\mathcal{g}$. For a generic spin orientation, it turns out that $H_{d i p o l e}$ remains almost the same ( its just the dipole-dipole classical interaction ) but $H_{b o n d}$ is more sophisticated that a  fairly in-adept theorist like myself is unable to decipher. So we turn out to approximating it and making it tractable. On close inspection, it seems natural that the <em>bond</em> formation of the central atom $B$ can be approximated to linear order to the number of nearest $X$. This is brilliant, because we can now numerically compute $H_{b o n d}$ as $\sum^6_{i}r_i$ where $r_i$ is the nearest neighbor distance (NND) to the 6 $X$ atoms surrounding $B$ for different orientation of $BX_3$ tetrahedrons. Thus we now have all the ingredients for solving the complete Hamiltonian which is given by</p>
 
-<script type="math/tex; mode=display">\begin{equation}H(\theta_1,\phi_1,\theta_2,\phi_2)=V_x (S^x_i\cdot S^x_j)+V_y(S^y_i\cdot  S^y_j)+V_z(S^z_i\cdot  S^z_j)+\mathcal{g} \cdot U(\theta_1,\phi_1,\theta_2,\phi_2)\end{equation}\label{eq:2}</script>
+\[\begin{equation}H(\theta_1,\phi_1,\theta_2,\phi_2)=V_x (S^x_i\cdot S^x_j)+V_y(S^y_i\cdot  S^y_j)+V_z(S^z_i\cdot  S^z_j)+\mathcal{g} \cdot U(\theta_1,\phi_1,\theta_2,\phi_2)\end{equation}\label{eq:2}\]
 
 <p>where</p>
 
-<script type="math/tex; mode=display">V_x(\Theta_1,\Theta_2)=\alpha(\theta_1,\phi_1,\theta_2,\phi_2)-3sin(\theta_1)cos(\phi_1)sin(\theta_2)cos(\phi_2)</script>
+\[V_x(\Theta_1,\Theta_2)=\alpha(\theta_1,\phi_1,\theta_2,\phi_2)-3sin(\theta_1)cos(\phi_1)sin(\theta_2)cos(\phi_2)\]
 
-<script type="math/tex; mode=display">V_y(\Theta_1,\Theta_3)=\alpha(\theta_1,\phi_1,\theta_2,\phi_2)-3sin(\theta_1)sin(\phi_1)sin(\theta_2)sin(\phi_2)</script>
+\[V_y(\Theta_1,\Theta_3)=\alpha(\theta_1,\phi_1,\theta_2,\phi_2)-3sin(\theta_1)sin(\phi_1)sin(\theta_2)sin(\phi_2)\]
 
-<script type="math/tex; mode=display">V_z(\Theta_1,\Theta_4)=\alpha(\theta_1,\phi_1,\theta_2,\phi_2)-3cos(\theta_1)cos(\theta_2)</script>
+\[V_z(\Theta_1,\Theta_4)=\alpha(\theta_1,\phi_1,\theta_2,\phi_2)-3cos(\theta_1)cos(\theta_2)\]
 
 <p>and $U(\theta_1,\phi_1,\theta_2,\phi_2)$ is known numerically. We now can solve \ref{eq:2} using Monte-carlo technique where we sample new orientation of the spins and calculate the NND for estimating $U$ and analytically solve $H_{d i p}$ and proceed to next step. This also helps us couple electric field to the calculation as it is, but another term added that couple spins of particular direction ! But the snag here is that NND algorithms are computational expensive. For instance the in python, the most efficient one written using <code class="language-plaintext highlighter-rouge">cython</code> costs around .09 sec for single calculation of a $5x5x5$ super cell. And this is where Julia comes in, speeding things up.</p>
 

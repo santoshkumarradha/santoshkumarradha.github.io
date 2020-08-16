@@ -178,6 +178,10 @@
           
         
           
+            
+          
+        
+          
         
           
         
@@ -321,7 +325,7 @@ MathJax.Hub.Config({
 
 <p>Dipole interaction energy can be derived and is given by</p>
 
-<script type="math/tex; mode=display">\begin{equation}U_{\mathrm{dd}}=\frac{1}{4 \pi \epsilon_{0} r_{i j}^{3}}\left[\vec{\mu}_{i} \cdot \vec{\mu}_{j}-3 \frac{\left(\vec{\mu}_{i} \cdot \mathbf{r}_{i j}\right)\left(\mathbf{r}_{i j} \cdot \vec{\mu}_{j}\right)}{r_{i j}^{2}}\right]\end{equation} \label{eq:1}</script>
+\[\begin{equation}U_{\mathrm{dd}}=\frac{1}{4 \pi \epsilon_{0} r_{i j}^{3}}\left[\vec{\mu}_{i} \cdot \vec{\mu}_{j}-3 \frac{\left(\vec{\mu}_{i} \cdot \mathbf{r}_{i j}\right)\left(\mathbf{r}_{i j} \cdot \vec{\mu}_{j}\right)}{r_{i j}^{2}}\right]\end{equation} \label{eq:1}\]
 
 <p>Where $\mu_{i}$ is the dipole vector and  $r_{i j}$ is the vector connecting the dipoles. Here, for the sake of simplicity, we will ignore the pre-factors and code just the form of it. This doesn’t take out any physics as for our case, the strength is arbitrary and infact controlled by the coupling between dipole energy and “bonding” energy.</p>
 
@@ -359,9 +363,9 @@ MathJax.Hub.Config({
 
 <p><code class="language-plaintext highlighter-rouge">get_dipole_energy_between_tetra</code> implements the \ref{eq:1} formula without the scaling which can be a parameter to be tuned. Now we can actually calculate the change  total energy of a single twist of a tetrahedron, which is actually the quantity that determines the acceptance of Monte carlo. For this, we write a function that takes the system, position of the index to make flip and finally axis and theta to rotate the position about. We also need the scaling factor for calculating the two competing energy which is given by</p>
 
-<script type="math/tex; mode=display">\begin{equation}
+\[\begin{equation}
 H=H_{d i p o l e}+ \mathcal{g} \cdot H_{b o n d}
-\end{equation}\label{eq:2}</script>
+\end{equation}\label{eq:2}\]
 
 <p>Just to make it easy, we will re-write \ref{eq:2} to $H=\mathcal{g_1} \cdot H_{d i p o l e}+ \mathcal{g_2} \cdot H_{b o n d}$ so that we can check the individual effect while debugging. So now we can calculate the above by</p>
 

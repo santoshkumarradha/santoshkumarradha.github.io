@@ -178,6 +178,10 @@
           
         
           
+            
+          
+        
+          
         
           
         
@@ -257,17 +261,16 @@ MathJax.Hub.Config({
 
 <p>So, Lets try to understand a rudimentary superconductor that is made up of 2 sites ($a,b$) with no hopping between them. The Hameltonian can be written as</p>
 
-<script type="math/tex; mode=display">\mathcal{H}=E_ac^\dagger_ac_a+E_bc^\dagger_bc_b+\Delta c^\dagger_a c^\dagger_b +\Delta^* c_b c_a \label{eq:1}</script>
+\[\mathcal{H}=E_ac^\dagger_ac_a+E_bc^\dagger_bc_b+\Delta c^\dagger_a c^\dagger_b +\Delta^* c_b c_a \label{eq:1}\]
 
 <p>First part with $E_a$ and $E_b$ terms are the cost for the electron to stay in each site whole $\Delta$ is the superconducting pairing term that pairs the electron creating or destroying them in both sites. This term forces us to forgo our faithful single particle basis to represent the Hamiltonian, as one can clearly see that $\mathcal{H}$ involves two particle term. So, as would a many body theorist do, lets solve it in the two particle basis.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\mathcal{H}=\begin{bmatrix}
-E_a & 0 & 0 & 0\\ 
-0 & E_b & 0 & 0\\ 
-0 & 0 & E_a+E_b &\Delta \\ 
-0& 0 &\Delta^*  &0 
-\end{bmatrix}\label{eq:2} %]]></script>
+\[\mathcal{H}=\begin{bmatrix}
+E_a &amp; 0 &amp; 0 &amp; 0\\ 
+0 &amp; E_b &amp; 0 &amp; 0\\ 
+0 &amp; 0 &amp; E_a+E_b &amp;\Delta \\ 
+0&amp; 0 &amp;\Delta^*  &amp;0 
+\end{bmatrix}\label{eq:2}\]
 
 <p>The basis order chosen is ($\vert a,0 \rangle,\vert a,b \rangle,\vert a,b \rangle,\vert 0,0 \rangle$). Because of the block diagonal nature of H, it is clear to see that two of the Eigen values are $E_a,E_b$. It would be easy to solve $H$ analytically as its just 4x4 matrix. But instead, let us solve it numerically just for fun.</p>
 
@@ -277,27 +280,27 @@ E_a & 0 & 0 & 0\\
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="k">def</span> <span class="nf">H_bdg</span><span class="p">(</span><span class="n">e1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">e2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">eig</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
                 <span class="p">[</span><span class="n">e1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">e1</span><span class="o">+</span><span class="n">e2</span><span class="p">,</span><span class="n">d</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="mi">0</span><span class="p">]</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="n">conj</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="mi">0</span><span class="p">]</span>
     <span class="p">])</span>
     <span class="k">if</span> <span class="n">eig</span><span class="p">:</span>
-        <span class="n">eig1</span><span class="p">,</span><span class="nb">eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+        <span class="n">eig1</span><span class="p">,</span><span class="nb">eval</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">eig</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">eig1</span><span class="p">,</span><span class="nb">eval</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">H</span>
     
 <span class="n">eig</span><span class="p">,</span><span class="nb">eval</span><span class="o">=</span><span class="n">H_bdg</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">eval</span><span class="p">,</span><span class="n">eig</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"eig: "</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="nb">round</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s">"</span><span class="se">\t</span><span class="s"> E vec: "</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"eig: "</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s">"</span><span class="se">\t</span><span class="s"> E vec: "</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">eig</span><span class="p">:</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s">"k"</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Energy"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">eig</span><span class="p">:</span><span class="n">plt</span><span class="p">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s">"k"</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Energy"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>For the test, we choose $E_a=0,E_b=1,\Delta=1$. Now plotting the eigen value, we get</p>
@@ -315,36 +318,35 @@ E_a & 0 & 0 & 0\\
 
 <p>We see that we have two eigen values at 0 and 1 as we choose $E_{a,b}$ to be that and then there are other eigen value that belong to the two particle subspace. Well this is where things get interesting. Its exactly this fact that we are going to exploit to understand the system - that we can split the Hamiltonian into blocks of single and two particle. A block diagonal form means, we have a symmetry in our system, and that symmetry is nothing but Parity. This is the symmetry that our eigen vectors can now be labeled by a number which specifies if it belongs to the single particle block or the two particle block. To this end, let us construct the parity operator.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\hat{P}=\begin{bmatrix}
-1 & 0 & 0 & 0\\ 
-0 & 1& 0 & 0\\ 
-0 & 0 & -1 &0 \\ 
-0& 0 &0 &-1
-\end{bmatrix}\label{eq:3} %]]></script>
+\[\hat{P}=\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\\ 
+0 &amp; 1&amp; 0 &amp; 0\\ 
+0 &amp; 0 &amp; -1 &amp;0 \\ 
+0&amp; 0 &amp;0 &amp;-1
+\end{bmatrix}\label{eq:3}\]
 
 <p>It is easy to see that $PP^\dagger=0$ this operator when acted on our basis, spits either 1 or -1 based on if the eigen value is in single particle or multi particle subspace. Now let us color our eigen value based on this operators expectation value.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">P</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">P</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
     <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="p">])</span>
-<span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="nb">round</span><span class="p">(</span><span class="nb">eval</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">@</span><span class="n">P</span><span class="o">@</span><span class="nb">eval</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">eig</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="s">"r"</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="s">"b"</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="nb">eval</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">@</span><span class="n">P</span><span class="o">@</span><span class="nb">eval</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">conj</span><span class="p">())</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span><span class="n">plt</span><span class="p">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">eig</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="s">"r"</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="s">"b"</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="n">mpatches</span>   
-<span class="n">red_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'$</span><span class="err">\</span><span class="s">hat{P}=1$'</span><span class="p">)</span>
-<span class="n">blue_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'$</span><span class="err">\</span><span class="s">hat{P}=-1$'</span><span class="p">)</span>
+<span class="n">red_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="p">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'$\hat{P}=1$'</span><span class="p">)</span>
+<span class="n">blue_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="p">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'$\hat{P}=-1$'</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">red_patch</span><span class="p">,</span> <span class="n">blue_patch</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s">"center left"</span><span class="p">,</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">red_patch</span><span class="p">,</span> <span class="n">blue_patch</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s">"center left"</span><span class="p">,</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Energy"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"Manybody_eigen_colered.png"</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Energy"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"Manybody_eigen_colered.png"</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 <p>This gives us the following plot</p>
 

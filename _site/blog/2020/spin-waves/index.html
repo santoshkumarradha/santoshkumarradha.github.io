@@ -178,6 +178,10 @@
           
         
           
+            
+          
+        
+          
         
           
         
@@ -252,18 +256,17 @@ MathJax.Hub.Config({
   <article class="post-content">
     <p>I have been studying this amazing idea put forth by Takao Kotani and Mark van Schilfgaarde in <a href="http://dx.doi.org/10.1088/0953-8984/20/29/295214">this</a> paper where they interestingly come up with a way to calculate spin waves from transverse spin susceptibilities. Before that it is also interesting to first introduce and get familiar with the idea of calculating Heisenberg interaction $J_{ij}$ for a spin Hamiltonian described by</p>
 
-<script type="math/tex; mode=display">\begin{equation}\mathcal{H}=\sum_{ij}J_{ij}\hat{S}_i \hat{S}_j\end{equation}\label{eq:1}</script>
+\[\begin{equation}\mathcal{H}=\sum_{ij}J_{ij}\hat{S}_i \hat{S}_j\end{equation}\label{eq:1}\]
 
 <p>The usual way to calculate this <em>ab-initio</em> is to do super-cell multi-level energy calculations i.e. one would calculate the total energy of FM and different AFM configurations from which the energy needed to flip a single spin can be extracted. But the second and more less <em>brute-forcey</em> way is to use perturbation theory. Before going into spin waves, I think it is important to get that out of the way and this post would be concerning that.</p>
 
 <p>We start by writing down the time ordered transverse spin susceptibility as</p>
 
-<script type="math/tex; mode=display">\begin{equation}\chi^{+-}\left(\mathbf{r}, \mathbf{r}^{\prime}, t-t^{\prime}\right)=-\mathrm{i}\left\langle T\left(\hat{S}^{+}(\mathbf{r}, t) \hat{S}^{-}\left(\mathbf{r}^{\prime}, t^{\prime}\right)\right)\right\rangle\end{equation}\label{eq:2}</script>
+\[\begin{equation}\chi^{+-}\left(\mathbf{r}, \mathbf{r}^{\prime}, t-t^{\prime}\right)=-\mathrm{i}\left\langle T\left(\hat{S}^{+}(\mathbf{r}, t) \hat{S}^{-}\left(\mathbf{r}^{\prime}, t^{\prime}\right)\right)\right\rangle\end{equation}\label{eq:2}\]
 
-<p>Here, $T$ denotes the time ordering while $\hat{S}^{\pm}(\mathbf{r}, t)=\hat{S}^{x}(\mathbf{r}, t) \pm \mathrm{i} \hat{S}^{y}(\mathbf{r}, t)$ with $S_i$ being the spin density operators. Further let us impose collinearity in the system with the spin direction along $z$ which gives us <script type="math/tex">% <![CDATA[
-<S_x>=<S_y>=0 %]]></script>. Focusing on the $z$ component, we have that to be</p>
+<p>Here, $T$ denotes the time ordering while $\hat{S}^{\pm}(\mathbf{r}, t)=\hat{S}^{x}(\mathbf{r}, t) \pm \mathrm{i} \hat{S}^{y}(\mathbf{r}, t)$ with $S_i$ being the spin density operators. Further let us impose collinearity in the system with the spin direction along $z$ which gives us \(&lt;S_x&gt;=&lt;S_y&gt;=0\). Focusing on the $z$ component, we have that to be</p>
 
-<script type="math/tex; mode=display">\begin{equation}2\left\langle\hat{S}^{z}(\mathbf{r}, t)\right\rangle=M(\mathbf{r})\end{equation}\label{eq:3}</script>
+\[\begin{equation}2\left\langle\hat{S}^{z}(\mathbf{r}, t)\right\rangle=M(\mathbf{r})\end{equation}\label{eq:3}\]
 
 <p>where we have $M(\mathbf{r})=n^{\uparrow}(\mathbf{r})-n^{\downarrow}(\mathbf{r})$ is the magnetic moment which for our case would be a vector given by $M_i(\mathbf{r}) \forall i \in$ atoms. (to be continued soon…)</p>
 

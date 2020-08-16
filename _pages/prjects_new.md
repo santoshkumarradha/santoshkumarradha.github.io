@@ -16,7 +16,12 @@ My PhD is mainly focused on working with a new phase of matter called Topologica
 <h3>Physics</h3>
 </div> 
 <div class="section" id="head1">
-<div class="dash"></div></div> 
+<div class="dash"></div></div>
+<!-- Machine learning topology -->
+<div id="wrap">
+    <img class="left" src="{{ site.baseurl }}/assets/img/topoml.png" width="220px">
+    <p><strong>Machine Learning topological Z<sub>2</sub> invarients: </strong> Learning wave functions as fiber bundles in a combined CNN+BRNN (Convolutional Neural Networks+Bidirectional Recurrent Neural Networks) architecture. Generalizations go beyond Haldene model and seems to extend well to disordered systems.</p>
+</div>
 <!-- Dirac merging -->
 <div id="wrap">
     <img class="left" src="{{ site.baseurl }}/assets/img/dirc-merging.gif" width="220px">
