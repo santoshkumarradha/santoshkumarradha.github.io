@@ -55,10 +55,15 @@ My PhD is mainly focused on working with a new phase of matter called Topologica
 </div> 
 <div class="section" id="head1">
 <div class="dash"></div></div> 
-<!-- Dirac merging -->
+<!-- Stochastic cricket -->
 <div id="wrap">
     <img class="left" src="{{ site.baseurl }}/assets/img/cric_thumb.png" width="220px">
     <p><strong>Stochastic theory of cricket: </strong> A new formalism for analyzing the progression of cricket game using Stochastic differential equation (SDE) is introduced. This theory enables a quantitative way of representing every team using three key variables which have physical meaning associated with them. This is in contrast with the traditional system of rating/ranking teams based on combination of different statical cumulants. Further more, using this formalism, a new method to calculate the winning probability as a progression of number of balls is given.</p>
+</div>
+
+<div id="wrap">
+    <img class="left" src="{{ site.baseurl }}/assets/img/policy.png" width="220px">
+    <p><strong>Election information flow: </strong>Using OU (Ornstein–Uhlenbeck) stochastic process, we model the effect of flow and varience of information in an election processs on the resulting outcome. Oftentimes, complicated policy stance is perceived as a negative effect on the outcome, here we show that there are points in phase space where a "confused" stance actually helps in party's favour. (pre-print to be published soon) </p>
 </div>
 <!-- Perovskite project -->
 <div id="wrap">
