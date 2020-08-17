@@ -1,12 +1,12 @@
 ---
 layout: tagpage
-title: "Tag: quantum"
-tag: quantum
+title: "Tag: Quantum"
+tag: Quantum
 robots: noindex
 ---
 ---
 layout: tagpage
-title: "Tag: Quantum"
-tag: Quantum
+title: "Tag: quantum"
+tag: quantum
 robots: noindex
 ---

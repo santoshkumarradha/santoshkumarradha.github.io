@@ -63,7 +63,7 @@ My PhD is mainly focused on working with a new phase of matter called Topologica
 
 <div id="wrap">
     <img class="left" src="{{ site.baseurl }}/assets/img/policy.png" width="220px">
-    <p><strong>Election information flow: </strong>Using OU (Ornstein–Uhlenbeck) stochastic process, we model the effect of flow and varience of information in an election processs on the resulting outcome. Oftentimes, complicated policy stance is perceived as a negative effect on the outcome, here we show that there are points in phase space where a "confused" stance actually helps in party's favour. (pre-print to be published soon) </p>
+    <p><strong>Information flow in elections: </strong>Using OU (Ornstein–Uhlenbeck) stochastic process, we model the flow and varience of information in an election and its effect on the outcome. Oftentimes, complicated policy stance is perceived as a negative effect on the outcome, here we show that there are points in phase space where a "confused" stance actually helps in party's favour. (pre-print to be published soon) </p>
 </div>
 <!-- Perovskite project -->
 <div id="wrap">
