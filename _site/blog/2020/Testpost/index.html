@@ -82,6 +82,26 @@
           
         
           
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
         
           
             
@@ -122,6 +142,14 @@
             
             <a class="page-link" href="http://localhost:4000/publications/">Publications</a>
             
+            
+          
+        
+          
+            
+          
+        
+          
             
           
         
@@ -230,17 +258,17 @@ MathJax.Hub.Config({
 
 <p>Okay, Lets start by saying our goal is to make a rudimentary model to understand the <em>crowd mentality</em> in stock market <em>i.e.</em> how the market as a whole reacts to negative or positive news.</p>
 
-<p>Say the market is made up <script type="math/tex">n \times n=n^{2}</script>  of people with everyone living in a hypothetical flat land who trade a particular sector (like financial sector or tech stocks). In this world, everyone is in a state of “buy” or “sell” which we will take it to be <script type="math/tex">+1</script> or <script type="math/tex">-1</script>. Thus the measure that market tries to minimize is given by</p>
+<p>Say the market is made up \(n \times n=n^{2}\)  of people with everyone living in a hypothetical flat land who trade a particular sector (like financial sector or tech stocks). In this world, everyone is in a state of “buy” or “sell” which we will take it to be \(+1\) or \(-1\). Thus the measure that market tries to minimize is given by</p>
 
-<script type="math/tex; mode=display">\begin{equation}\hat{H}=J\sum_{i,j}\hat{\sigma_i} \hat{\sigma_j}\end{equation}</script>
+\[\begin{equation}\hat{H}=J\sum_{i,j}\hat{\sigma_i} \hat{\sigma_j}\end{equation}\]
 
-<p>First we will describe what the variables mean and then see why market would try to minimize this. Here <script type="math/tex">\hat{\sigma_i}</script> is the state operator, meaning given a state of market it would pick the sentiment of <script type="math/tex">i^{th}</script> person. For example, lets say the market is made up of 4 people (extremely small world, but meh!), then the state of the market, say is <script type="math/tex">|s>=(1,1,-1,1)</script> meaning the first and second person wants to buy (<script type="math/tex">1,1</script>) are the first two elements, while the third and fourth one wants to sell denoted by (<script type="math/tex">-1,-1</script>) which are the last two elements. Then <script type="math/tex">\hat{\sigma_2}|s>=1</script> just picks the second person’s sentiment. <script type="math/tex">J</script> here defines the influence of our nearby trader circle (for example listening to a podcast about stock market might influence your sentiment and hence everyone who listens to the podcast would be influenced the same way). Now we need a final ingredient which we will call randomness <script type="math/tex">R</script> which influences randomness in our market. This is essentially controls how our group’s sector is not self contained, meaning our traders often get influenced by what happens in other sectors too. For example, what happens to utility sector is strongly influenced by real-estate markets. But since we are just modeling one sector, we will include this effect as a randomness <script type="math/tex">R</script>. Finally the sum in <script type="math/tex">H</script> is with nearest neighbor <em>i.e.</em> person close to each other. How do we know who is close to who? well thats where our approximation of flat land comes into play, we will put our investors in a 2 dimensional square grid and hence each person would be surrounded by 4 person next to each other as shown where each black dot is connected to 4 nearest white dots</p>
+<p>First we will describe what the variables mean and then see why market would try to minimize this. Here \(\hat{\sigma_i}\) is the state operator, meaning given a state of market it would pick the sentiment of \(i^{th}\) person. For example, lets say the market is made up of 4 people (extremely small world, but meh!), then the state of the market, say is \(|s&gt;=(1,1,-1,1)\) meaning the first and second person wants to buy (\(1,1\)) are the first two elements, while the third and fourth one wants to sell denoted by (\(-1,-1\)) which are the last two elements. Then \(\hat{\sigma_2}|s&gt;=1\) just picks the second person’s sentiment. \(J\) here defines the influence of our nearby trader circle (for example listening to a podcast about stock market might influence your sentiment and hence everyone who listens to the podcast would be influenced the same way). Now we need a final ingredient which we will call randomness \(R\) which influences randomness in our market. This is essentially controls how our group’s sector is not self contained, meaning our traders often get influenced by what happens in other sectors too. For example, what happens to utility sector is strongly influenced by real-estate markets. But since we are just modeling one sector, we will include this effect as a randomness \(R\). Finally the sum in \(H\) is with nearest neighbor <em>i.e.</em> person close to each other. How do we know who is close to who? well thats where our approximation of flat land comes into play, we will put our investors in a 2 dimensional square grid and hence each person would be surrounded by 4 person next to each other as shown where each black dot is connected to 4 nearest white dots</p>
 <p align="center">
   <img width="200" src="/assets/img/square.png" />
 </p>
-<p>To see how <script type="math/tex">H</script> signifies a market, what we have said in <script type="math/tex">H</script> is that whenever we are same or different from our neighbors, we pay a cost of <script type="math/tex">|J|</script> and thus the market as an entirety tries to pay the lowest cost.</p>
+<p>To see how \(H\) signifies a market, what we have said in \(H\) is that whenever we are same or different from our neighbors, we pay a cost of \(|J|\) and thus the market as an entirety tries to pay the lowest cost.</p>
 
-<p>Now we are ready to study this system. This is what we are going to do. We will start with a initial configuration of market that is generated by random and calculate what <script type="math/tex">H</script> is and then switch the sentiment of some one in random and see if it reduces the cost. If it does, we will take that as the new normalcy of market. If it doesn’t reduce the cost, we will still accept it with a probability of <script type="math/tex">e^{-R \Delta H}</script> where <script type="math/tex">\Delta H</script> is the cost of changing the sentiment of that one person. Thus as time proceeds, we will see what happens to the total market sentiment.</p>
+<p>Now we are ready to study this system. This is what we are going to do. We will start with a initial configuration of market that is generated by random and calculate what \(H\) is and then switch the sentiment of some one in random and see if it reduces the cost. If it does, we will take that as the new normalcy of market. If it doesn’t reduce the cost, we will still accept it with a probability of \(e^{-R \Delta H}\) where \(\Delta H\) is the cost of changing the sentiment of that one person. Thus as time proceeds, we will see what happens to the total market sentiment.</p>
 
 <p>To code this, we will first import all required python libraries</p>
 
@@ -257,25 +285,25 @@ MathJax.Hub.Config({
 <p>Then without going into details (which is quite straight forward) we have the following code that calculates the total sentiment of the market as time proceeds</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">initialstate</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>   
-    <span class="n">state</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">state</span>
 
-<span class="o">@</span><span class="n">nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="o">@</span><span class="n">nb</span><span class="p">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">mcmove</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">J</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-                <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
                 <span class="n">s</span> <span class="o">=</span>  <span class="n">config</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
                 <span class="n">nb_1</span> <span class="o">=</span> <span class="n">config</span><span class="p">[(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">,</span><span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="n">a</span><span class="p">,(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">,</span><span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="n">a</span><span class="p">,(</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">]</span>
                 <span class="n">cost</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">J</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">nb_1</span>
                 <span class="k">if</span> <span class="n">cost</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">s</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k">elif</span> <span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cost</span><span class="o">*</span><span class="n">beta</span><span class="p">):</span>
+                <span class="k">elif</span> <span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cost</span><span class="o">*</span><span class="n">beta</span><span class="p">):</span>
                     <span class="n">s</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="n">config</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
     <span class="k">return</span> <span class="n">config</span>
-<span class="o">@</span><span class="n">nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="o">@</span><span class="n">nb</span><span class="p">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calcEnergy</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">J</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">energy</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">config</span><span class="p">)):</span>
@@ -284,12 +312,12 @@ MathJax.Hub.Config({
             <span class="n">nb_1</span> <span class="o">=</span> <span class="n">config</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">,(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">,(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">N</span><span class="p">]</span>
             <span class="n">energy</span> <span class="o">+=</span> <span class="o">-</span><span class="n">nb_1</span><span class="o">*</span><span class="n">S</span>
     <span class="k">return</span> <span class="n">energy</span><span class="o">/</span><span class="mf">4.</span>
-<span class="o">@</span><span class="n">nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="o">@</span><span class="n">nb</span><span class="p">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calcMag</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
-    <span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">mag</span>
 <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mf">2.3</span><span class="p">,</span><span class="n">N</span><span class="o">=</span> <span class="mi">16</span><span class="p">,</span><span class="n">eqSteps</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span><span class="n">mcSteps</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span><span class="n">state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">J</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">E</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">mcSteps</span><span class="p">)</span>
+    <span class="n">E</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">mcSteps</span><span class="p">)</span>
     <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span>  <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">mcSteps</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">),</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">mcSteps</span><span class="o">*</span><span class="n">mcSteps</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">)</span> 
     <span class="n">E1</span> <span class="o">=</span> <span class="n">M1</span> <span class="o">=</span> <span class="n">E2</span> <span class="o">=</span> <span class="n">M2</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">initialstate</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -307,9 +335,9 @@ MathJax.Hub.Config({
 
 <p>and then plot it using</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">J</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">T</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">2.8</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'font.size'</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
+<span class="n">T</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">2.8</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">.</span><span class="n">update</span><span class="p">({</span><span class="s">'font.size'</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
 <span class="n">i1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j1</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
     <span class="n">n</span><span class="o">=</span><span class="mi">4000</span>
@@ -318,49 +346,49 @@ MathJax.Hub.Config({
     <span class="k">if</span> <span class="n">j1</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span><span class="n">i1</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span><span class="n">j1</span><span class="o">=</span><span class="mi">0</span>
     <span class="n">E</span><span class="o">=</span><span class="n">calculate</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span><span class="n">eqSteps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">mcSteps</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">J</span><span class="o">=</span><span class="n">J</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
     <span class="c1">#plt.plot(range(len(E)),E,c="k",ls=":",alpha=.2)
-</span>    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">)),</span><span class="n">E</span><span class="p">,</span><span class="n">where</span><span class="o">=</span><span class="n">E</span><span class="o">&gt;</span><span class="mf">0.</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">)),</span><span class="n">E</span><span class="p">,</span><span class="n">where</span><span class="o">=</span><span class="n">E</span><span class="o">&lt;</span><span class="mf">0.</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">"time"</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">"Sentiment"</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"J={}  R={}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="nb">round</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"JvsR1.png"</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span>    <span class="n">ax</span><span class="p">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">)),</span><span class="n">E</span><span class="p">,</span><span class="n">where</span><span class="o">=</span><span class="n">E</span><span class="o">&gt;</span><span class="mf">0.</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">)),</span><span class="n">E</span><span class="p">,</span><span class="n">where</span><span class="o">=</span><span class="n">E</span><span class="o">&lt;</span><span class="mf">0.</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">"time"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">"Sentiment"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"J={}  R={}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"JvsR1.png"</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 <p>giving us</p>
 <p align="center">
   <img width="100%" src="/assets/img/JvsR1.png" />
 </p>
 
-<p>Here we have plotted the net sentiment of the market which we will call &lt;<script type="math/tex">S(J,R)</script>&gt; as function of <script type="math/tex">R</script> for a given <script type="math/tex">J=1</script>. Our simple and idealistic indeed shows some very exciting results. First we see that this is very similar to actual return of a market. Second, we see an interesting trend as a function of <script type="math/tex">R</script> in this artificial market. For small <script type="math/tex">R</script>, we see that the market sentiment is rather robust and the “herd behavior” is maintained. Meaning, once the market is in a state of “bull” or “bear”, it continues on that state for a while till a peaking stimulus is reached. This is contrasting to the big <script type="math/tex">R</script> case where the market is quite rabidly fluctuating with sentiments. This is indeed true in reality too. For instance, a small <script type="math/tex">R</script> limit would correspond to what analysts usually call Macro, or essentially the long time dynamics. For long term inverters, who buy-sell stocks once a year or once a month, their “sentiment” is seldom affected by coupling of their stocks to other sectors, they are indeed called “value/growth” investors. While day traders, are greatly affected by everyday news (for example, a sudden drop in oil prices would influence gold/bond market for day traders). Thus it is easy to see that the the longer we are waiting in the market, smaller the <script type="math/tex">R</script> is in our model and shorter we trade, larger <script type="math/tex">R</script> is. To make it clearer, lets look at monthly, weekly, daily return of a typical stock - AAPL</p>
+<p>Here we have plotted the net sentiment of the market which we will call &lt;\(S(J,R)\)&gt; as function of \(R\) for a given \(J=1\). Our simple and idealistic indeed shows some very exciting results. First we see that this is very similar to actual return of a market. Second, we see an interesting trend as a function of \(R\) in this artificial market. For small \(R\), we see that the market sentiment is rather robust and the “herd behavior” is maintained. Meaning, once the market is in a state of “bull” or “bear”, it continues on that state for a while till a peaking stimulus is reached. This is contrasting to the big \(R\) case where the market is quite rabidly fluctuating with sentiments. This is indeed true in reality too. For instance, a small \(R\) limit would correspond to what analysts usually call Macro, or essentially the long time dynamics. For long term inverters, who buy-sell stocks once a year or once a month, their “sentiment” is seldom affected by coupling of their stocks to other sectors, they are indeed called “value/growth” investors. While day traders, are greatly affected by everyday news (for example, a sudden drop in oil prices would influence gold/bond market for day traders). Thus it is easy to see that the the longer we are waiting in the market, smaller the \(R\) is in our model and shorter we trade, larger \(R\) is. To make it clearer, lets look at monthly, weekly, daily return of a typical stock - AAPL</p>
 
 <p align="center">
   <img width="100%" src="/assets/img/AAPL.png" />
 </p>
 <p>This clearly shows that as the investment time increases, the stocks get more stochastic just like our model.</p>
 
-<p>Now, for a non physics mind, this whole idea of modeling the above way, stems from a physics concept called Ising model. Physicists use this same model to study the dynamics/evolution of spins in a lattice which leads to magnetism and indeed <script type="math/tex">H</script> is called the Hamiltonian of the system. Every system in physics is modeled by writing a physical/experimental motivated <script type="math/tex">H</script> that you think the system would try to minimize and then use it to predict and infer things about the system. This same model is also used by chemists and material scientists to study how binary alloys order where instead of spin/market sentiment, every site can either have compound A or B. And infact <script type="math/tex">R</script> is the temperature of the given system.</p>
+<p>Now, for a non physics mind, this whole idea of modeling the above way, stems from a physics concept called Ising model. Physicists use this same model to study the dynamics/evolution of spins in a lattice which leads to magnetism and indeed \(H\) is called the Hamiltonian of the system. Every system in physics is modeled by writing a physical/experimental motivated \(H\) that you think the system would try to minimize and then use it to predict and infer things about the system. This same model is also used by chemists and material scientists to study how binary alloys order where instead of spin/market sentiment, every site can either have compound A or B. And infact \(R\) is the temperature of the given system.</p>
 
-<p>Now one can add more complications to the model by relaxing a wide range of approximations like change <script type="math/tex">J</script> to <script type="math/tex">J_{ij}</script> to be position dependent and much more. There is indeed lot to decipher from this simple system which we will save it for another blog. But the idea illustrated here is the philosophy of physics-To model systems using physical motivations using the beautiful language of math. These are not mere toy models and more sophisticated math models are used in wall streets to make big $.</p>
+<p>Now one can add more complications to the model by relaxing a wide range of approximations like change \(J\) to \(J_{ij}\) to be position dependent and much more. There is indeed lot to decipher from this simple system which we will save it for another blog. But the idea illustrated here is the philosophy of physics-To model systems using physical motivations using the beautiful language of math. These are not mere toy models and more sophisticated math models are used in wall streets to make big $.</p>
 
 <p>Finally the point of this blog was to see how numba performs, to see that we rewrite the same code without the <code class="language-plaintext highlighter-rouge">@jit</code> command and run the following test with respect to number of time steps</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">time_jit</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">steps</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">40</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
     <span class="n">a</span><span class="o">=%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">q</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="n">E</span><span class="o">=</span><span class="n">calculate</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span><span class="n">eqSteps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">mcSteps</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">J</span><span class="o">=</span><span class="n">J</span><span class="p">)</span>
-    <span class="n">time_jit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">best</span><span class="p">)</span>
+    <span class="n">time_jit</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">best</span><span class="p">)</span>
 <span class="n">time_nojit</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
     <span class="n">a</span><span class="o">=%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">n1</span> <span class="o">-</span><span class="n">r1</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">q</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="n">E</span><span class="o">=</span><span class="n">calculate_nojit</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span><span class="n">eqSteps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">mcSteps</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">J</span><span class="o">=</span><span class="n">J</span><span class="p">)</span>
-    <span class="n">time_nojit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">best</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">steps</span><span class="p">,[</span><span class="n">time_nojit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">time_jit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_jit</span><span class="p">))],</span><span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">"MC steps"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">"x times faster"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"time wo numba/time with numba"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"jitvnojit.png"</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">time_nojit</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">best</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">steps</span><span class="p">,[</span><span class="n">time_nojit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">time_jit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_jit</span><span class="p">))],</span><span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">"MC steps"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">"x times faster"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"time wo numba/time with numba"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"jitvnojit.png"</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 <p>and Viola !</p>
 
@@ -368,7 +396,7 @@ MathJax.Hub.Config({
   <img width="50%" src="/assets/img/jitvnojit.png" />
 </p>
 
-<p>We almost have 200 times increase in speed and without numba, it is almost impossible to run more than <script type="math/tex">10^{3-4}</script> runs in a everyday laptop. Well now I have some data to show to my prof. Until next time.</p>
+<p>We almost have 200 times increase in speed and without numba, it is almost impossible to run more than \(10^{3-4}\) runs in a everyday laptop. Well now I have some data to show to my prof. Until next time.</p>
 
 <p>PS: there are lot more interesting things to be shown/done with this same model and we shall do it in the next session and also explain the idea of “emergence” in physics and how it is beautifully mapped to the market</p>
 
@@ -398,6 +426,10 @@ MathJax.Hub.Config({
 
   
   
+  <a href="/tag/topology"><code class="highligher-rouge"><nobr>topology</nobr></code></a>
+
+  
+  
   <a href="/tag/python"><code class="highligher-rouge"><nobr>python</nobr></code></a>
 
   
@@ -418,11 +450,11 @@ MathJax.Hub.Config({
 
   
   
-  <a href="/tag/topology"><code class="highligher-rouge"><nobr>topology</nobr></code></a>
+  <a href="/tag/tight-binding"><code class="highligher-rouge"><nobr>tight-binding</nobr></code></a>
 
   
   
-  <a href="/tag/tight-binding"><code class="highligher-rouge"><nobr>tight-binding</nobr></code></a>
+  <a href="/tag/talk"><code class="highligher-rouge"><nobr>talk</nobr></code></a>
 
   
   
@@ -438,6 +470,10 @@ MathJax.Hub.Config({
 
   
   
+  <a href="/tag/quamtum"><code class="highligher-rouge"><nobr>quamtum</nobr></code></a>
+
+  
+  
   <a href="/tag/pysktb"><code class="highligher-rouge"><nobr>pysktb</nobr></code></a>
 
   
@@ -450,7 +486,35 @@ MathJax.Hub.Config({
 
   
   
+  <a href="/tag/field-theory"><code class="highligher-rouge"><nobr>field-theory</nobr></code></a>
+
+  
+  
+  <a href="/tag/advisor"><code class="highligher-rouge"><nobr>advisor</nobr></code></a>
+
+  
+  
+  <a href="/tag/Superconductivity"><code class="highligher-rouge"><nobr>Superconductivity</nobr></code></a>
+
+  
+  
   <a href="/tag/Slaster-koster"><code class="highligher-rouge"><nobr>Slaster-koster</nobr></code></a>
+
+  
+  
+  <a href="/tag/Quantum"><code class="highligher-rouge"><nobr>Quantum</nobr></code></a>
+
+  
+  
+  <a href="/tag/QFT"><code class="highligher-rouge"><nobr>QFT</nobr></code></a>
+
+  
+  
+  <a href="/tag/Physics"><code class="highligher-rouge"><nobr>Physics</nobr></code></a>
+
+  
+  
+  <a href="/tag/BdG"><code class="highligher-rouge"><nobr>BdG</nobr></code></a>
 
       </div>
     </div>

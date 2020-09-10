@@ -16,7 +16,12 @@ My PhD is mainly focused on working with a new phase of matter called Topologica
 <h3>Physics</h3>
 </div> 
 <div class="section" id="head1">
-<div class="dash"></div></div> 
+<div class="dash"></div></div>
+<!-- Machine learning topology -->
+<div id="wrap">
+    <img class="left" src="{{ site.baseurl }}/assets/img/topoml.png" width="220px">
+    <p><strong>Machine Learning topological Z<sub>2</sub> invarients: </strong> Learning wave functions as fiber bundles in a combined CNN+BRNN (Convolutional Neural Networks+Bidirectional Recurrent Neural Networks) architecture. Generalizations go beyond Haldene model and seems to extend well to disordered systems.</p>
+</div>
 <!-- Dirac merging -->
 <div id="wrap">
     <img class="left" src="{{ site.baseurl }}/assets/img/dirc-merging.gif" width="220px">
@@ -50,10 +55,15 @@ My PhD is mainly focused on working with a new phase of matter called Topologica
 </div> 
 <div class="section" id="head1">
 <div class="dash"></div></div> 
-<!-- Dirac merging -->
+<!-- Stochastic cricket -->
 <div id="wrap">
     <img class="left" src="{{ site.baseurl }}/assets/img/cric_thumb.png" width="220px">
-    <p><strong>Stochastic theory of cricket: </strong> A new formalism for analyzing the progression of cricket game using Stochastic differential equation (SDE) is introduced. This theory enables a quantitative way of representing every team using three key variables which have physical meaning associated with them. This is in contrast with the traditional system of rating/ranking teams based on combination of different statical cumulants. Further more, using this formalism, a new method to calculate the winning probability as a progression of number of balls is given.</p>
+    <p><strong>Stochastic theory of cricket: </strong> A new formalism for analyzing the progression of cricket game using Stochastic differential equation (SDE) is introduced. This theory enables a quantitative way of representing every team using three key variables which have physical meaning associated with them. This is in contrast with the traditional system of rating/ranking teams based on combination of different statical cumulants. Further more, using this formalism, a new method to calculate the winning probability as a progression of number of balls is given.<a href="https://arxiv.org/abs/1908.07372">Read about it here</a></p>
+</div>
+
+<div id="wrap">
+    <img class="left" src="{{ site.baseurl }}/assets/img/policy.png" width="220px">
+    <p><strong>Information flow in elections: </strong>Using OU (Ornstein–Uhlenbeck) stochastic process, we model the flow and varience of information in an election and its effect on the outcome. Oftentimes, complicated policy stance is perceived as a negative effect on the outcome, here we show that there are points in phase space where a "confused" stance actually helps in party's favour. (pre-print to be published soon) </p>
 </div>
 <!-- Perovskite project -->
 <div id="wrap">
