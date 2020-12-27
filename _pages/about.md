@@ -23,15 +23,32 @@ Hi, I'm Santosh. I graduated from [NIT-Trichy](https://en.wikipedia.org/wiki/Nat
 Apart from these, I'm interested in a lot of domains, particularly in the intersection of mathematics, Physics, Computer Science and music. Among these, of particular interest is stochastic differential equations (SDE) and its applied use in music, sports and quant finance, if you are interested in cricket, do take a look at the recent preprint ["Stochastic differential theory of cricket"](https://arxiv.org/abs/1908.07372) and ["Information flow in political elections: a stochastic perspective"](https://arxiv.org/abs/2009.05198), where I use the ideas from stochastic processes to understand cricket and elections. I also love powerlifting, playing [mridangam](https://en.wikipedia.org/wiki/Mridangam), [taking photographs](https://www.flickr.com/photos/santyphotography/), [Graphic designing](https://www.behance.net/instrumentsantosh) and reading.
 
 I also developed and "maintain" these open source packages which was initially started to ease my PhD work flow
-1. [pySKTB](https://github.com/santoshkumarradha/pysktb) - Scientific Python package for solving Slater Koster tight-binding Hamiltonian
-2. [pyQuestaal](https://github.com/santoshkumarradha/pyquestaal) - Python class to interface with [QUESTAAL](http://questaal.org) Quantum codes, which is a suite of electronic structure programs. 
+
+<ul>
+  <li><a href="https://github.com/santoshkumarradha/pysktb">pySKTB </a> - Scientific Python package for solving Slater Koster tight-binding Hamiltonian</li>
+  <li><a href="https://github.com/santoshkumarradha/pyquestaal">pyQuestaal</a> - Python class to interface with <a href="http://questaal.org">QUESTAAL</a> Quantum codes, which is a suite of electronic structure programs. </li>
+</ul>
 
 Things you will find me doing
-- Stuck to black board :crayon:
-- Face down on Mac coding :computer:
-- In couch with *[TM Krishna](https://en.wikipedia.org/wiki/T._M._Krishna)* running my trusty Noise canceling headphones :headphones:
-- Power lifting :weight_lifting_man:
-- Searching for my next cup of [filter coffee](https://en.wikipedia.org/wiki/Indian_filter_coffee) :coffee:
+<ul>
+  <li> Stuck to black board :crayon:</li>
+<li>  Face down on Mac coding :computer:</li>
+<li> In couch with <a href="https://en.wikipedia.org/wiki/T._M._Krishna">TM Krishna</a> running my trusty Noise canceling headphones :headphones:</li>
+<li> Power lifting :weight_lifting_man:</li>
+<li> Searching for my next cup of <a href="https://en.wikipedia.org/wiki/Indian_filter_coffee">filter coffee</a> :coffee:</li>
+</ul>
+
+<!-- {% capture details %}
+Topological System
+
+Electronic Structure Theory
+
+Strongly Correlated Systems
+
+Quantum Computing/Quantum Algorithms
+{% endcapture %}
+{% capture summary %}Physics{% endcapture %}{% include details.html %} -->
+
 
 <p style="color:darkgrey;font-size:13px">I have worked on innumerable problems that you would call humble, but which I enjoyed and felt very good about because I sometimes could partially succeed...No problem is too small or too trivial if we can really do something about it. - Richard P. Feynman</p>
 

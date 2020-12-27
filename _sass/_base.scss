@@ -23,6 +23,7 @@ body {
           box-sizing: border-box;
      -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  
 }
 
 .wrapper {
@@ -33,4 +34,7 @@ body {
     padding-right: $horizontal-spacing-unit;
     padding-left: $horizontal-spacing-unit;
     @extend .clearfix;
+}
+body {
+  color:white;
 }
