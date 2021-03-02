@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+
+
+
+
+
+  
+  <title>Santosh Kumar Radha | Superconductivity and BdG - part 1</title>
+  <meta name="description" content="Personal webpage
+">
+  <!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142155886-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-142155886-1');
+</script>
+<!-- /Google Analytics -->
+
+  
+
+  <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/blog/2020/BdG/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <a href="http://localhost:4000/"><strong>Santosh</strong> Radha</a>
+    </span>
+    
+
+    <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="http://localhost:4000/">About</a>
+
+        <!-- Blog -->
+        <a class="page-link" href="http://localhost:4000/blog/">Blog</a>
+
+        <!-- Pages -->
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+            <a class="page-link" href="http://localhost:4000/research/">Research</a>
+            
+            
+          
+        
+          
+            
+            <a class="page-link" href="http://localhost:4000/publications/">Publications</a>
+            
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+
+
+
+        <!-- github -->
+        <a class="page-link" href="https://github.com/santoshkumarradha">Github</a>
+        <!-- flicker -->
+        <!-- <a class="page-link" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj3sIP5grzdAhWmq1kKHX9zCA0QFjAAegQIBxAB&url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Fsantyphotography%2F&usg=AOvVaw3wIh929JJSpXgNa3DHo7cb">Photography</a> -->
+        <!-- design -->
+        <!-- <a class="page-link" href="https://www.behance.net/instrumentsantosh">Design</a> -->
+        <!-- CV link -->
+        <!-- <a class="page-link" href="http://localhost:4000/assets/pdf/CV.pdf">vitae</a> -->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <script type="text/x-mathjax-config">
+var font = "Neo-Euler";
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [['$','$']],
+		displayMath: [['\\[','\\]']],
+		processEscapes: true,
+	},
+	"SVG":{ 
+		font:font
+	},
+	"HTML-CSS": {
+		webFont: font,
+		imageFont: font,
+		preferredFont: font,
+		availableFonts: [],
+		scale: 85,
+		mtextFontInherit: true
+	}
+}); </script> 
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://idcrook.github.io/assets/js/MathJaxLocal.js"></script>
+<div class="post">
+
+  <header class="post-header">
+    <h8 class="post-title">Superconductivity and BdG - part 1</h8>
+        <p class="post-meta">May 24, 2020</p>
+        <p class="post-meta">
+      <span>tags: 
+    
+      
+      <a href="/tag/BdG"><code class="highligher-rouge"><nobr>BdG</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/Superconductivity"><code class="highligher-rouge"><nobr>Superconductivity</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/Quantum"><code class="highligher-rouge"><nobr>Quantum</nobr></code>&nbsp;</a>
+    
+      
+      <a href="/tag/Physics"><code class="highligher-rouge"><nobr>Physics</nobr></code>&nbsp;</a>
+    
+  </span></p>
+
+  </header>
+  
+
+
+  <article class="post-content">
+    <p>There are moments in research where you suddenly have an euphoric rush once you truly understand the beauty of something. First such moment happened to me when I got the beauty of SU(2) spinor group. Couple of days ago, I had the same cathartic moment when I finally got the brilliance of BdG Hamiltonians. This post is just to clarify to my future self if I get stuck understanding this again. In this first post, let me outline the basic super conductive nature with a simple 2 site system.</p>
+
+<p>So, Lets try to understand a rudimentary superconductor that is made up of 2 sites ($a,b$) with no hopping between them. The Hameltonian can be written as</p>
+
+\[\mathcal{H}=E_ac^\dagger_ac_a+E_bc^\dagger_bc_b+\Delta c^\dagger_a c^\dagger_b +\Delta^* c_b c_a \label{eq:1}\]
+
+<p>First part with $E_a$ and $E_b$ terms are the cost for the electron to stay in each site whole $\Delta$ is the superconducting pairing term that pairs the electron creating or destroying them in both sites. This term forces us to forgo our faithful single particle basis to represent the Hamiltonian, as one can clearly see that $\mathcal{H}$ involves two particle term. So, as would a many body theorist do, lets solve it in the two particle basis.</p>
+
+\[\mathcal{H}=\begin{bmatrix}
+E_a &amp; 0 &amp; 0 &amp; 0\\ 
+0 &amp; E_b &amp; 0 &amp; 0\\ 
+0 &amp; 0 &amp; E_a+E_b &amp;\Delta \\ 
+0&amp; 0 &amp;\Delta^*  &amp;0 
+\end{bmatrix}\label{eq:2}\]
+
+<p>The basis order chosen is ($\vert a,0 \rangle,\vert a,b \rangle,\vert a,b \rangle,\vert 0,0 \rangle$). Because of the block diagonal nature of H, it is clear to see that two of the Eigen values are $E_a,E_b$. It would be easy to solve $H$ analytically as its just 4x4 matrix. But instead, let us solve it numerically just for fun.</p>
+
+<p>We start by defining the matrix in python given by</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="k">def</span> <span class="nf">H_bdg</span><span class="p">(</span><span class="n">e1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">e2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">eig</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
+                <span class="p">[</span><span class="n">e1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">e1</span><span class="o">+</span><span class="n">e2</span><span class="p">,</span><span class="n">d</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="n">conj</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">])</span>
+    <span class="k">if</span> <span class="n">eig</span><span class="p">:</span>
+        <span class="n">eig1</span><span class="p">,</span><span class="nb">eval</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">eig</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">eig1</span><span class="p">,</span><span class="nb">eval</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">H</span>
+    
+<span class="n">eig</span><span class="p">,</span><span class="nb">eval</span><span class="o">=</span><span class="n">H_bdg</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">eval</span><span class="p">,</span><span class="n">eig</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"eig: "</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s">"</span><span class="se">\t</span><span class="s"> E vec: "</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">eig</span><span class="p">:</span><span class="n">plt</span><span class="p">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s">"k"</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Energy"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>For the test, we choose $E_a=0,E_b=1,\Delta=1$. Now plotting the eigen value, we get</p>
+
+<p align="center">
+<figure>
+    <p align="center">
+    <img width="auto" height="300px" src="/assets/img/Manybody_eigen.png" />
+    <p align="center">
+      <figcaption>Eigen values of H in Many body basis</figcaption>
+    </p>
+    </p>
+</figure>
+</p>
+
+<p>We see that we have two eigen values at 0 and 1 as we choose $E_{a,b}$ to be that and then there are other eigen value that belong to the two particle subspace. Well this is where things get interesting. Its exactly this fact that we are going to exploit to understand the system - that we can split the Hamiltonian into blocks of single and two particle. A block diagonal form means, we have a symmetry in our system, and that symmetry is nothing but Parity. This is the symmetry that our eigen vectors can now be labeled by a number which specifies if it belongs to the single particle block or the two particle block. To this end, let us construct the parity operator.</p>
+
+\[\hat{P}=\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\\ 
+0 &amp; 1&amp; 0 &amp; 0\\ 
+0 &amp; 0 &amp; -1 &amp;0 \\ 
+0&amp; 0 &amp;0 &amp;-1
+\end{bmatrix}\label{eq:3}\]
+
+<p>It is easy to see that $PP^\dagger=0$ this operator when acted on our basis, spits either 1 or -1 based on if the eigen value is in single particle or multi particle subspace. Now let us color our eigen value based on this operators expectation value.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">P</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="nb">eval</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">@</span><span class="n">P</span><span class="o">@</span><span class="nb">eval</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">conj</span><span class="p">())</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span><span class="n">plt</span><span class="p">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">eig</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="s">"r"</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="s">"b"</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="n">mpatches</span>   
+<span class="n">red_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="p">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'$\hat{P}=1$'</span><span class="p">)</span>
+<span class="n">blue_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="p">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'$\hat{P}=-1$'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">red_patch</span><span class="p">,</span> <span class="n">blue_patch</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s">"center left"</span><span class="p">,</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Energy"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"Manybody_eigen_colered.png"</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>This gives us the following plot</p>
+
+<p align="center">
+<figure>
+    <p align="center">
+    <img width="auto" height="300px" src="/assets/img/Manybody_eigen_colered.png" />
+    <p align="center">
+      <figcaption>Eigen values of H in Many body basis projected on Parity operator</figcaption>
+    </p>
+    </p>
+</figure>
+</p>
+
+<p>As you can see, the lowest energy ground state of the system is made up of two particle ground state while the first excited state is made up of single particle state. Parity here says if we have any unpaired electron in our system or if all the electrons are paired. Now we can study this system as a function of a parameter,</p>
+
+<p align="center">
+<figure>
+    <p align="center">
+    <img width="75%" height="auto" min-width="100px" src="/assets/img/GS_depedence.png" />
+    <p align="center">
+      <figcaption>Eigen values of H in Many body basis projected on Parity operator as function of E_b</figcaption>
+    </p>
+    </p>
+</figure>
+</p>
+
+<p>Here, we plot the eigen values projected on the parity subspace as a function of $E_b$ for $E_a=1,\Delta=1$. Here is the beauty, the ground state of this system after around $E_b&gt;-1$ switches in parity and thus starts having one unpaired electron that has a finite energy gap to be paired. This thus gives amazing physical result as superconductivity.</p>
+
+<p>We will look at how this entire discussion can be mapped in BdG formalism in the next post …</p>
+
+
+  </article>
+
+  
+
+</div>
+<p></p>
+<div class="lineHorizontal__container">
+  <div class="lineHorizontal"></div>
+</div>
+
+
+ <h2>Topics to explore</h2>
+
+
+
+  
+  
+  <a href="/tag/physics"><code class="highligher-rouge"><nobr>physics</nobr></code></a>
+
+  
+  
+  <a href="/tag/coding"><code class="highligher-rouge"><nobr>coding</nobr></code></a>
+
+  
+  
+  <a href="/tag/topology"><code class="highligher-rouge"><nobr>topology</nobr></code></a>
+
+  
+  
+  <a href="/tag/python"><code class="highligher-rouge"><nobr>python</nobr></code></a>
+
+  
+  
+  <a href="/tag/perovskite"><code class="highligher-rouge"><nobr>perovskite</nobr></code></a>
+
+  
+  
+  <a href="/tag/numba"><code class="highligher-rouge"><nobr>numba</nobr></code></a>
+
+  
+  
+  <a href="/tag/Quantum"><code class="highligher-rouge"><nobr>Quantum</nobr></code></a>
+
+  
+  
+  <a href="/tag/Monte-carlo"><code class="highligher-rouge"><nobr>Monte-carlo</nobr></code></a>
+
+  
+  
+  <a href="/tag/Julia"><code class="highligher-rouge"><nobr>Julia</nobr></code></a>
+
+  
+  
+  <a href="/tag/tight-binding"><code class="highligher-rouge"><nobr>tight-binding</nobr></code></a>
+
+  
+  
+  <a href="/tag/talk"><code class="highligher-rouge"><nobr>talk</nobr></code></a>
+
+  
+  
+  <a href="/tag/susceptibility"><code class="highligher-rouge"><nobr>susceptibility</nobr></code></a>
+
+  
+  
+  <a href="/tag/spin-waves"><code class="highligher-rouge"><nobr>spin-waves</nobr></code></a>
+
+  
+  
+  <a href="/tag/quantum"><code class="highligher-rouge"><nobr>quantum</nobr></code></a>
+
+  
+  
+  <a href="/tag/quamtum"><code class="highligher-rouge"><nobr>quamtum</nobr></code></a>
+
+  
+  
+  <a href="/tag/pysktb"><code class="highligher-rouge"><nobr>pysktb</nobr></code></a>
+
+  
+  
+  <a href="/tag/optimization"><code class="highligher-rouge"><nobr>optimization</nobr></code></a>
+
+  
+  
+  <a href="/tag/grover"><code class="highligher-rouge"><nobr>grover</nobr></code></a>
+
+  
+  
+  <a href="/tag/finance"><code class="highligher-rouge"><nobr>finance</nobr></code></a>
+
+  
+  
+  <a href="/tag/field-theory"><code class="highligher-rouge"><nobr>field-theory</nobr></code></a>
+
+  
+  
+  <a href="/tag/algorithm"><code class="highligher-rouge"><nobr>algorithm</nobr></code></a>
+
+  
+  
+  <a href="/tag/advisor"><code class="highligher-rouge"><nobr>advisor</nobr></code></a>
+
+  
+  
+  <a href="/tag/addition"><code class="highligher-rouge"><nobr>addition</nobr></code></a>
+
+  
+  
+  <a href="/tag/Superconductivity"><code class="highligher-rouge"><nobr>Superconductivity</nobr></code></a>
+
+  
+  
+  <a href="/tag/Slaster-koster"><code class="highligher-rouge"><nobr>Slaster-koster</nobr></code></a>
+
+  
+  
+  <a href="/tag/QFT"><code class="highligher-rouge"><nobr>QFT</nobr></code></a>
+
+  
+  
+  <a href="/tag/Physics"><code class="highligher-rouge"><nobr>Physics</nobr></code></a>
+
+  
+  
+  <a href="/tag/BdG"><code class="highligher-rouge"><nobr>BdG</nobr></code></a>
+
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2021 Santosh Kumar Radha.
+    
+    
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="http://localhost:4000/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+<script src="http://localhost:4000/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.min.css">
+
+
+
+
+  </body>
+
+</html>
